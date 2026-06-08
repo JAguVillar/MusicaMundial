@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GroupSection from '../components/GroupSection.astro';
+import { teams, worldCupGroups } from '../data/worldCupGroups.js';
+import { getSpotifySource } from '../data/musicSources.js';
+
+const readyCount = teams.filter((team) => getSpotifySource(team).status === 'ready').length;
+---
+<BaseLayout title="Música Mundial | Soundtracks del Mundial 2026">
+  <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    <section class="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.06] p-7 shadow-2xl shadow-black/30 backdrop-blur md:p-12">
+      <div class="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-limewave/20 blur-3xl"></div>
+      <div class="relative max-w-4xl">
+        <p class="inline-flex rounded-full border border-limewave/30 bg-limewave/10 px-4 py-2 text-xs font-black uppercase tracking-[0.32em] text-limewave">MVP estático · Spotify embeds</p>
+        <h1 class="mt-6 text-5xl font-black leading-none text-white md:text-7xl">Música Mundial</h1>
+        <p class="mt-5 max-w-2xl text-lg leading-8 text-slate-200 md:text-xl">
+          El soundtrack de cada selección del Mundial 2026: grupos, países y playlists Top 50 públicas de Spotify en una experiencia rápida, simple y compartible.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#grupos" class="rounded-full bg-limewave px-6 py-3 text-sm font-black text-pitch transition hover:-translate-y-0.5 hover:bg-white">Explorar grupos</a>
+          <a href="/pais/mx/" class="rounded-full border border-white/15 px-6 py-3 text-sm font-black text-white transition hover:border-limewave hover:text-limewave">Ver ejemplo México</a>
+        </div>
+      </div>
+      <dl class="relative mt-10 grid gap-3 sm:grid-cols-3">
+        <div class="rounded-2xl border border-white/10 bg-black/25 p-4">
+          <dt class="text-sm text-slate-400">Grupos</dt>
+          <dd class="mt-1 text-3xl font-black text-white">{worldCupGroups.length}</dd>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-black/25 p-4">
+          <dt class="text-sm text-slate-400">Selecciones</dt>
+          <dd class="mt-1 text-3xl font-black text-white">{teams.length}</dd>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-black/25 p-4">
+          <dt class="text-sm text-slate-400">Embeds listos</dt>
+          <dd class="mt-1 text-3xl font-black text-white">{readyCount}</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="mt-8 rounded-[2rem] border border-amber-300/20 bg-amber-300/10 p-5 text-sm leading-7 text-amber-50">
+      <strong>Nota de producto:</strong> esta versión evita backend, login y API de Spotify. Los embeds se actualizan desde Spotify cuando la playlist pública cambia. Las selecciones sin ID curado muestran un fallback para completar manualmente después.
+    </section>
+
+    <nav class="mt-8 flex flex-wrap gap-2" aria-label="Selector de grupos">
+      {worldCupGroups.map((group) => (
+        <a href={`#grupo-${group.group}`} class="rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 text-sm font-bold text-slate-200 transition hover:border-limewave hover:text-limewave">Grupo {group.group}</a>
+      ))}
+    </nav>
+
+    <div id="grupos" class="mt-8 grid gap-6">
+      {worldCupGroups.map((group) => <GroupSection group={group} />)}
+    </div>
+  </main>
+</BaseLayout>

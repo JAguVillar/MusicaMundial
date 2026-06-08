@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(182, 255, 92, 0.18), transparent 32rem),
+    radial-gradient(circle at 85% 15%, rgba(34, 211, 238, 0.12), transparent 28rem),
+    linear-gradient(135deg, #06130f 0%, #0d1b2a 52%, #111827 100%);
+  color: #f8fafc;
+}
+
+.sound-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+.equalizer-bar {
+  animation: pulse-wave 1.2s ease-in-out infinite;
+  transform-origin: bottom;
+}
+
+.equalizer-bar:nth-child(2) { animation-delay: 0.15s; }
+.equalizer-bar:nth-child(3) { animation-delay: 0.3s; }
+.equalizer-bar:nth-child(4) { animation-delay: 0.45s; }
+
+@keyframes pulse-wave {
+  0%, 100% { transform: scaleY(0.42); opacity: 0.65; }
+  50% { transform: scaleY(1); opacity: 1; }
+}

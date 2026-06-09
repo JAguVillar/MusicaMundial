@@ -12,60 +12,24 @@ const readyCount = teams.filter(
 <BaseLayout title="Música Mundial | Soundtracks del Mundial 2026">
   <main>
     <div
-      class="bg-[#12135a] rounded-bl-[40px] md:rounded-bl-[80px] lg:rounded-bl-[120px] flex min-h-screen px-4 py-6 sm:px-6 lg:px-8"
+      class="bg-[#12135a] rounded-bl-[40px] md:rounded-bl-[80px] lg:rounded-bl-[360px] flex min-h-screen px-4 py-6 sm:px-6 lg:px-8"
       aria-label="Hero Música Mundial"
     >
       <div
         class="mx-auto flex min-h-[calc(100vh-3rem)] w-full max-w-7xl flex-col"
       >
-        <header class="flex items-center justify-between gap-4">
-          <a
-            href="/"
-            class="flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 backdrop-blur"
-          >
-            <span
-              class="grid h-9 w-9 place-items-center rounded-full bg-white text-lg"
-              >🎵</span
-            >
-            <span
-              class="text-sm font-black uppercase tracking-[0.22em] text-white"
-              >Música Mundial</span
-            >
-          </a>
-          <a
-            href="#grupos"
-            class="rounded-full border border-white/25 px-5 py-3 text-xs font-black uppercase tracking-[0.18em] text-white transition hover:border-white hover:bg-white hover:text-[#0c0a3e]"
-            >Explorar</a
-          >
-        </header>
-
         <div
           id="hero-content"
           class="mx-auto flex flex-1 items-center py-10 text-center"
         >
           <div class="mx-auto max-w-4xl">
-            <div class="mx-auto grid max-w-md grid-cols-3 gap-3 text-center">
-              <div class="hero-stat">
-                <strong>{worldCupGroups.length}</strong>
-                <span>Grupos</span>
-              </div>
-              <div class="hero-stat">
-                <strong>{teams.length}</strong>
-                <span>Selecciones</span>
-              </div>
-              <div class="hero-stat">
-                <strong>{readyCount}</strong>
-                <span>Embeds</span>
-              </div>
-            </div>
-
             <p
-              class="mt-9 text-sm font-black uppercase tracking-[0.28em] text-cyan-200 md:text-base"
+              class="mt-9 text-sm font-black uppercase text-cyan-200 md:text-base"
             >
               Soundtracks del Mundial 2026
             </p>
             <h1
-              class="mt-4 text-balance text-6xl font-black uppercase leading-[0.88] tracking-[-0.08em] text-white sm:text-7xl md:text-8xl lg:text-9xl"
+              class="mt-4 text-balance text-6xl font-black uppercase leading-[0.88] text-white sm:text-7xl md:text-8xl lg:text-9xl"
             >
               Música<br />Mundial 26
             </h1>
@@ -76,73 +40,75 @@ const readyCount = teams.filter(
               grupo y una playlist pública de Spotify para escuchar lo que suena
               en el país.
             </p>
-
-            <div
-              class="mx-auto mt-10 max-w-3xl rounded-[2rem] border border-white/12 bg-[#080731]/80 p-3 shadow-2xl shadow-black/30 backdrop-blur md:rounded-[2.25rem] md:p-4"
-            >
-              <div
-                class="grid gap-3 rounded-[1.45rem] bg-[#050420] p-4 text-left md:grid-cols-3 md:p-5"
-              >
-                <div class="hero-filter-item">
-                  <span>📍</span>
-                  <div>
-                    <p>Grupo</p>
-                    <strong>Elige A–L</strong>
-                  </div>
-                </div>
-                <div class="hero-filter-item">
-                  <span>🏆</span>
-                  <div>
-                    <p>Selección</p>
-                    <strong>48 soundtracks</strong>
-                  </div>
-                </div>
-                <div class="hero-filter-item">
-                  <span>🎧</span>
-                  <div>
-                    <p>Playlist</p>
-                    <strong>Spotify embed</strong>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"
-            >
-              <a
-                href="#grupos"
-                class="rounded-full bg-white px-8 py-4 text-sm font-black uppercase tracking-[0.16em] text-[#0d0a45] shadow-xl shadow-black/20 transition hover:-translate-y-0.5 hover:bg-cyan-100"
-                >Entrar al mapa sonoro</a
-              >
-              <a
-                href="/pais/mx/"
-                class="rounded-full border border-white/30 px-8 py-4 text-sm font-black uppercase tracking-[0.16em] text-white transition hover:-translate-y-0.5 hover:border-cyan-200 hover:text-cyan-100"
-                >Ver México</a
-              >
-            </div>
           </div>
         </div>
       </div>
     </div>
-
-    <section id="grupos" class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-      <nav class="mt-12 flex flex-wrap gap-2" aria-label="Selector de grupos">
-        {
-          worldCupGroups.map((group) => (
-            <a
-              href={`#grupo-${group.group}`}
-              class="border border-slate-950 text-slate-950 hover:bg-slate-950 hover:text-white rounded-tl-none rounded-tr-full rounded-br-full rounded-bl-full px-5 py-2.5 text-xs font-black uppercase tracking-wider transition-all duration-200"
-            >
-              Grupo {group.group}
-            </a>
-          ))
-        }
-      </nav>
-
-      <div class="mt-8 grid gap-6">
-        {worldCupGroups.map((group) => <GroupSection group={group} />)}
-      </div>
-    </section>
   </main>
+
+  <section id="grupos" class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+    <nav class="mt-12 flex flex-wrap gap-2" aria-label="Selector de grupos">
+      {
+        worldCupGroups.map((group) => (
+          <a
+            href={`#grupo-${group.group}`}
+            class="border border-slate-950 text-slate-950 hover:bg-slate-950 hover:text-white rounded-tl-none rounded-tr-full rounded-br-full rounded-bl-full px-5 py-2.5 text-xs font-black uppercase tracking-wider transition-all duration-200"
+          >
+            Grupo {group.group}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="mt-8 grid gap-6">
+      {worldCupGroups.map((group) => <GroupSection group={group} />)}
+    </div>
+  </section>
+
+  <script>
+    // Restore scroll position if returning from a country or group page
+    const referrer = document.referrer;
+    const isFromDetail = referrer && (referrer.includes("/pais/") || referrer.includes("/grupo/"));
+    
+    if (isFromDetail) {
+      const savedScroll = sessionStorage.getItem("homeScrollPosition");
+      if (savedScroll !== null) {
+        const scrollY = parseInt(savedScroll, 10);
+        
+        const html = document.documentElement;
+        const originalScrollBehavior = html.style.scrollBehavior;
+        html.style.scrollBehavior = "auto";
+        window.scrollTo(0, scrollY);
+        html.style.scrollBehavior = originalScrollBehavior;
+
+        // Reveal the page body now that it is scrolled to the target position
+        html.classList.remove("js-scroll-restoring");
+
+        // Re-apply in requestAnimationFrame to account for rendering/layout shifts
+        requestAnimationFrame(() => {
+          html.style.scrollBehavior = "auto";
+          window.scrollTo(0, scrollY);
+          html.style.scrollBehavior = originalScrollBehavior;
+        });
+
+        // Re-apply with a small timeout as a final fallback
+        setTimeout(() => {
+          html.style.scrollBehavior = "auto";
+          window.scrollTo(0, scrollY);
+          html.style.scrollBehavior = originalScrollBehavior;
+        }, 100);
+      } else {
+        document.documentElement.classList.remove("js-scroll-restoring");
+      }
+    } else {
+      // Clear stale scroll position on a fresh navigation
+      sessionStorage.removeItem("homeScrollPosition");
+      document.documentElement.classList.remove("js-scroll-restoring");
+    }
+
+    // Save scroll position when the user scrolls
+    window.addEventListener("scroll", () => {
+      sessionStorage.setItem("homeScrollPosition", window.scrollY.toString());
+    }, { passive: true });
+  </script>
 </BaseLayout>

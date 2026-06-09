@@ -4,51 +4,104 @@ import { getSpotifySource } from "../data/musicSources.js";
 const { team } = Astro.props;
 const source = getSpotifySource(team);
 const theme = team.theme || {
-  text: 'text-indigo-600',
-  border: 'border-indigo-100',
-  bg: 'bg-indigo-50/50',
-  accent: 'text-indigo-500',
-  hoverBorder: 'group-hover:border-indigo-300',
-  hoverShadow: 'hover:shadow-indigo-100/50',
-  hoverText: 'group-hover:text-indigo-600',
-  badge: 'bg-indigo-50 text-indigo-700 border-indigo-200/50'
+  text: "text-indigo-600",
+  border: "border-indigo-100",
+  bg: "bg-indigo-50/50",
+  accent: "text-indigo-500",
+  hoverBorder: "group-hover:border-indigo-300",
+  hoverShadow: "hover:shadow-indigo-100/50",
+  hoverText: "group-hover:text-indigo-600",
+  badge: "bg-indigo-50 text-indigo-700 border-indigo-200/50",
 };
+const isReady = source.status === "ready";
+
+const hoverBgColors = {
+  A: "rgba(254, 242, 244, 0.65)", // rose-50
+  B: "rgba(250, 245, 255, 0.65)", // purple-50
+  C: "rgba(239, 246, 255, 0.65)", // blue-50
+  D: "rgba(236, 253, 245, 0.65)", // emerald-50
+  E: "rgba(255, 247, 237, 0.65)", // orange-50
+  F: "rgba(245, 243, 255, 0.65)", // violet-50
+  G: "rgba(238, 242, 255, 0.65)", // indigo-50
+  H: "rgba(240, 253, 244, 0.65)", // green-50
+  I: "rgba(255, 251, 235, 0.65)", // amber-50
+  J: "rgba(253, 242, 248, 0.65)", // pink-50
+  K: "rgba(236, 254, 255, 0.65)", // cyan-50
+  L: "rgba(247, 254, 231, 0.65)", // lime-50
+};
+const hoverBg = hoverBgColors[team.group] || "rgba(248, 250, 252, 0.65)";
+const darkBorder = theme.outlineBtn.split(' ')[0] || 'border-slate-950';
 ---
 
-<a
-  href={`/pais/${team.slug}/`}
-  class={`group block rounded-[1.5rem] border border-slate-100 bg-white p-5 shadow-md shadow-slate-100/40 transition hover:-translate-y-1 hover:shadow-lg ${theme.hoverBorder} ${theme.hoverShadow}`}
->
-  <div class="flex items-start justify-between gap-4">
-    <div>
-      <img
-        src={`https://play.fifa.com/media/image/bracket_predictor/flags/world_cup_2026/${team.fifaCode}.png`}
-        alt={`Bandera de ${team.name}`}
-        class="h-9 w-auto object-contain"
-      />
-      <p class={`mt-3 text-[10px] font-extrabold uppercase tracking-[0.25em] ${theme.text}`}>Grupo {team.group}</p>
-      <h3
-        class="mt-1 text-xl font-black text-slate-900 group-hover:text-indigo-950"
-      >
-        {team.name}
-      </h3>
-      <p class="mt-0.5 text-sm text-slate-500">{team.countryCode}</p>
-    </div>
-    <span class:list={[
-      'rounded-full px-2.5 py-0.5 text-[10px] font-bold border',
-      source.status === 'ready' ? `${theme.badge}` : 'bg-slate-100 text-slate-600 border-slate-200/50'
-    ]}>{source.status === 'ready' ? 'Embed listo' : 'Pendiente'}</span>
-  </div>
-  <div class="mt-6 flex items-end justify-between">
-    <div class={`flex h-8 items-end gap-1 ${theme.accent}`} aria-hidden="true">
-      <span class="equalizer-bar h-5 w-1.5 rounded-full bg-current"></span>
-      <span class="equalizer-bar h-8 w-1.5 rounded-full bg-current"></span>
-      <span class="equalizer-bar h-6 w-1.5 rounded-full bg-current"></span>
-      <span class="equalizer-bar h-4 w-1.5 rounded-full bg-current"></span>
-    </div>
-    <span
-      class={`text-xs font-black uppercase tracking-wider text-slate-700 transition ${theme.hoverText}`}
-      >Escuchar →</span
+{
+  isReady ? (
+    <a
+      href={`/pais/${team.slug}/`}
+      class={`group block rounded-[1.5rem] border-2 ${darkBorder} bg-white p-5 transition-all duration-300 hover:bg-[var(--hover-bg)] ${theme.hoverBorder} ${theme.hoverShadow}`}
+      style={`--hover-bg: ${hoverBg};`}
     >
-  </div>
-</a>
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <img
+            src={`https://play.fifa.com/media/image/bracket_predictor/flags/world_cup_2026/${team.fifaCode}.png`}
+            alt={`Bandera de ${team.name}`}
+            class="h-9 w-auto object-contain"
+          />
+
+          <h3 class="mt-1 text-xl font-black text-slate-900 group-hover:text-indigo-950">
+            {team.name}
+          </h3>
+        </div>
+      </div>
+      <div class="mt-6 flex items-end justify-between">
+        <div
+          class={`flex h-8 items-end gap-1 ${theme.accent}`}
+          aria-hidden="true"
+        >
+          <span class="equalizer-bar h-5 w-1.5 rounded-full bg-current" />
+          <span class="equalizer-bar h-8 w-1.5 rounded-full bg-current" />
+          <span class="equalizer-bar h-6 w-1.5 rounded-full bg-current" />
+          <span class="equalizer-bar h-4 w-1.5 rounded-full bg-current" />
+        </div>
+        <span
+          class={`text-xs font-black uppercase tracking-wider text-slate-700 transition ${theme.hoverText}`}
+        >
+          Escuchar →
+        </span>
+      </div>
+    </a>
+  ) : (
+    <a
+      href={`/pais/${team.slug}/`}
+      class={`group block rounded-[1.5rem] border ${darkBorder} bg-white p-5 shadow-sm transition-all duration-300 hover:bg-[var(--hover-bg)] ${theme.hoverBorder} ${theme.hoverShadow}`}
+      style={`--hover-bg: ${hoverBg};`}
+    >
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <img
+            src={`https://play.fifa.com/media/image/bracket_predictor/flags/world_cup_2026/${team.fifaCode}.png`}
+            alt={`Bandera de ${team.name}`}
+            class="h-9 w-auto object-contain"
+          />
+          <p class={`mt-3 text-[10px] font-extrabold uppercase ${theme.text}`}>
+            Grupo {team.group}
+          </p>
+          <h3 class="mt-1 text-xl font-black text-slate-900 group-hover:text-indigo-950">
+            {team.name}
+          </h3>
+        </div>
+      </div>
+      <div class="mt-6 flex items-end justify-between">
+        <div
+          class={`flex h-8 items-end pb-1 gap-1.5 ${theme.accent} opacity-50`}
+          aria-hidden="true"
+        >
+          <span class="h-1.5 w-1.5 rounded-full bg-current" />
+          <span class="h-1.5 w-1.5 rounded-full bg-current" />
+          <span class="h-1.5 w-1.5 rounded-full bg-current" />
+          <span class="h-1.5 w-1.5 rounded-full bg-current" />
+        </div>
+      </div>
+    </a>
+  )
+}

@@ -19,7 +19,19 @@ const top50Playlists = {
   PT: '37i9dQZEVXbKyJS56d1pgi',
   SE: '37i9dQZEVXbLoATJ81JYXz',
   TR: '37i9dQZEVXbIVYVBNw9D5K',
-  US: '37i9dQZEVXbLRQDuF5jeBp'
+  US: '37i9dQZEVXbLRQDuF5jeBp',
+  SA: '37i9dQZEVXbO839WGRmpu1',
+  CO: '37i9dQZEVXbOa2lmxNORXQ',
+  CZ: '37i9dQZEVXbIP3c3fqVrJY',
+  CL: '37i9dQZEVXbJk3M3tS019h',
+  EC: '37i9dQZEVXbJlM6nvL1nD1',
+  EG: '37i9dQZEVXbLn7RQmT5Xv2',
+  MA: '37i9dQZEVXbJU9eQpX8gPT',
+  NZ: '37i9dQZEVXbM8SIrkERIYl',
+  PA: '37i9dQZEVXbKypXHVwk1f0',
+  PY: '37i9dQZEVXbNOUPGj7tW6T',
+  ZA: '37i9dQZEVXbMH2jvi6jvjk',
+  UY: '37i9dQZEVXbMJJi3wgRbAy',
 };
 
 export const getSpotifySource = (team) => {

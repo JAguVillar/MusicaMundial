@@ -1,0 +1,29 @@
+---
+import { getSpotifySource } from '../data/musicSources.js';
+
+const { team } = Astro.props;
+const source = getSpotifySource(team);
+---
+<a href={`/pais/${team.slug}/`} class="group block rounded-[1.5rem] border border-white/10 bg-white/[0.06] p-5 shadow-lg shadow-black/20 backdrop-blur transition hover:-translate-y-1 hover:border-limewave/50 hover:bg-white/[0.1] hover:shadow-glow">
+  <div class="flex items-start justify-between gap-4">
+    <div>
+      <span class="text-4xl" aria-hidden="true">{team.flag}</span>
+      <p class="mt-4 text-xs font-bold uppercase tracking-[0.28em] text-limewave">Grupo {team.group}</p>
+      <h3 class="mt-2 text-xl font-black text-white">{team.name}</h3>
+      <p class="mt-1 text-sm text-slate-300">{team.countryCode}</p>
+    </div>
+    <span class:list={[
+      'rounded-full px-3 py-1 text-xs font-bold',
+      source.status === 'ready' ? 'bg-limewave/20 text-limewave' : 'bg-white/10 text-slate-300'
+    ]}>{source.status === 'ready' ? 'Embed listo' : 'Pendiente'}</span>
+  </div>
+  <div class="mt-6 flex items-end justify-between">
+    <div class="flex h-8 items-end gap-1 text-limewave" aria-hidden="true">
+      <span class="equalizer-bar h-5 w-1.5 rounded-full bg-current"></span>
+      <span class="equalizer-bar h-8 w-1.5 rounded-full bg-current"></span>
+      <span class="equalizer-bar h-6 w-1.5 rounded-full bg-current"></span>
+      <span class="equalizer-bar h-4 w-1.5 rounded-full bg-current"></span>
+    </div>
+    <span class="text-sm font-bold text-white/80 transition group-hover:text-limewave">Escuchar →</span>
+  </div>
+</a>

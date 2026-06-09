@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(182, 255, 92, 0.18), transparent 32rem),
+    radial-gradient(circle at 85% 15%, rgba(34, 211, 238, 0.12), transparent 28rem),
+    linear-gradient(135deg, #06130f 0%, #0d1b2a 52%, #111827 100%);
+  color: #f8fafc;
+}
+
+.sound-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+.equalizer-bar {
+  animation: pulse-wave 1.2s ease-in-out infinite;
+  transform-origin: bottom;
+}
+
+.equalizer-bar:nth-child(2) { animation-delay: 0.15s; }
+.equalizer-bar:nth-child(3) { animation-delay: 0.3s; }
+.equalizer-bar:nth-child(4) { animation-delay: 0.45s; }
+
+@keyframes pulse-wave {
+  0%, 100% { transform: scaleY(0.42); opacity: 0.65; }
+  50% { transform: scaleY(1); opacity: 1; }
+}
+
+.worldcup-hero {
+  background:
+    radial-gradient(circle at 52% 35%, rgba(51, 41, 143, 0.78), transparent 24rem),
+    linear-gradient(120deg, #11124f 0%, #10083d 48%, #24136f 100%);
+  isolation: isolate;
+}
+
+.worldcup-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), transparent 78%);
+  pointer-events: none;
+}
+
+.hero-curve {
+  position: absolute;
+  z-index: -1;
+  border-radius: 9999px;
+  filter: saturate(1.08);
+}
+
+.hero-curve-top {
+  top: -26rem;
+  right: -18rem;
+  width: min(72rem, 78vw);
+  height: min(42rem, 48vw);
+  background: #2332a0;
+}
+
+.hero-curve-bottom {
+  right: -8rem;
+  bottom: -22rem;
+  width: min(70rem, 82vw);
+  height: min(58rem, 64vw);
+  border: 9rem solid rgba(26, 15, 86, 0.92);
+  background: transparent;
+}
+
+.hero-ring {
+  position: absolute;
+  z-index: -1;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 120px rgba(255, 255, 255, 0.035);
+}
+
+.hero-ring-left {
+  left: -20rem;
+  bottom: -25rem;
+  width: 45rem;
+  height: 45rem;
+}
+
+.hero-ring-right {
+  right: 3rem;
+  top: 7rem;
+  width: 28rem;
+  height: 28rem;
+}
+
+.hero-stat {
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.055);
+  padding: 0.85rem 0.6rem;
+  backdrop-filter: blur(18px);
+}
+
+.hero-stat strong {
+  display: block;
+  color: #ffffff;
+  font-size: 1.65rem;
+  font-weight: 950;
+  line-height: 1;
+}
+
+.hero-stat span {
+  margin-top: 0.35rem;
+  display: block;
+  color: #c7d2fe;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.hero-filter-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  background: rgba(255, 255, 255, 0.035);
+  padding: 1rem;
+}
+
+.hero-filter-item span {
+  font-size: 1.35rem;
+}
+
+.hero-filter-item p {
+  color: #67e8f9;
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-filter-item strong {
+  display: block;
+  margin-top: 0.15rem;
+  color: #ffffff;
+  font-size: 0.98rem;
+}
+
+.hero-polaroid {
+  width: 12.5rem;
+  border-radius: 1.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.65rem;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(16px);
+}
+
+.hero-polaroid-muted {
+  opacity: 0.78;
+}
+
+.hero-polaroid-art {
+  display: grid;
+  height: 10.5rem;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 1.15rem;
+  box-shadow: inset 0 -50px 90px rgba(0, 0, 0, 0.2);
+}
+
+.hero-polaroid-art span {
+  filter: drop-shadow(0 16px 20px rgba(0, 0, 0, 0.28));
+  font-size: 4.3rem;
+}
+
+.hero-polaroid p {
+  margin-top: 0.75rem;
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 900;
+  line-height: 1.25rem;
+}

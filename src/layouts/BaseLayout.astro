@@ -1,0 +1,23 @@
+---
+import '../styles/global.css';
+
+const {
+  title = 'Música Mundial',
+  description = 'Soundtracks estáticos del Mundial 2026 con embeds públicos de Spotify por selección.'
+} = Astro.props;
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class="font-sans antialiased">
+    <div class="sound-grid min-h-screen">
+      <slot />
+    </div>
+  </body>
+</html>

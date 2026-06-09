@@ -44,3 +44,56 @@ body {
 .worldcup-hero {
   background: #12135a;
 }
+
+.hero-stat {
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.055);
+  padding: 0.85rem 0.6rem;
+  backdrop-filter: blur(18px);
+}
+
+.hero-stat strong {
+  display: block;
+  color: #ffffff;
+  font-size: 1.65rem;
+  font-weight: 950;
+  line-height: 1;
+}
+
+.hero-stat span {
+  margin-top: 0.35rem;
+  display: block;
+  color: #c7d2fe;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.hero-filter-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  background: rgba(255, 255, 255, 0.035);
+  padding: 1rem;
+}
+
+.hero-filter-item span {
+  font-size: 1.35rem;
+}
+
+.hero-filter-item p {
+  color: #67e8f9;
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-filter-item strong {
+  display: block;
+  margin-top: 0.15rem;
+  color: #ffffff;
+  font-size: 0.98rem;
+}

@@ -1,16 +1,17 @@
 ---
-import TeamCard from './TeamCard.astro';
+import TeamCard from "./TeamCard.astro";
 const { group } = Astro.props;
 ---
-<section id={`grupo-${group.group}`} class="scroll-mt-8 rounded-[2rem] border border-white/10 bg-black/20 p-5 backdrop-blur md:p-7">
+
+<section id={`grupo-${group.group}`} class={`scroll-mt-8 rounded-[2rem] border p-5 md:p-7 shadow-sm ${group.theme.border} ${group.theme.bg}`}>
   <div class="mb-5 flex flex-wrap items-center justify-between gap-3">
     <div>
-      <p class="text-xs font-bold uppercase tracking-[0.35em] text-limewave">Grupo</p>
-      <h2 class="text-3xl font-black text-white">{group.group}</h2>
+      <p class={`text-xs font-extrabold uppercase tracking-[0.35em] ${group.theme.text}`}>Grupo</p>
+      <h2 class="text-3xl font-black text-slate-900">{group.group}</h2>
     </div>
-    <a href={`/grupo/${group.group.toLowerCase()}/`} class="rounded-full border border-white/15 px-4 py-2 text-sm font-bold text-slate-200 transition hover:border-limewave hover:text-limewave">Ver grupo</a>
+    <a href={`/grupo/${group.group.toLowerCase()}/`} class={`border rounded-tl-none rounded-tr-full rounded-br-full rounded-bl-full px-5 py-2 text-xs font-black uppercase tracking-wider transition-all duration-200 ${group.theme.outlineBtn}`}>Ver grupo</a>
   </div>
   <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-    {group.teams.map((team) => <TeamCard team={{ ...team, group: group.group, slug: team.countryCode.toLowerCase().replace(/[^a-z0-9]+/g, '-') }} />)}
+    {group.teams.map((team) => <TeamCard team={{ ...team, group: group.group, slug: team.countryCode.toLowerCase().replace(/[^a-z0-9]+/g, '-'), theme: group.theme }} />)}
   </div>
 </section>

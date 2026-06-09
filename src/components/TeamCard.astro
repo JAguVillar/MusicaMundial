@@ -1,29 +1,54 @@
 ---
-import { getSpotifySource } from '../data/musicSources.js';
+import { getSpotifySource } from "../data/musicSources.js";
 
 const { team } = Astro.props;
 const source = getSpotifySource(team);
+const theme = team.theme || {
+  text: 'text-indigo-600',
+  border: 'border-indigo-100',
+  bg: 'bg-indigo-50/50',
+  accent: 'text-indigo-500',
+  hoverBorder: 'group-hover:border-indigo-300',
+  hoverShadow: 'hover:shadow-indigo-100/50',
+  hoverText: 'group-hover:text-indigo-600',
+  badge: 'bg-indigo-50 text-indigo-700 border-indigo-200/50'
+};
 ---
-<a href={`/pais/${team.slug}/`} class="group block rounded-[1.5rem] border border-white/10 bg-white/[0.06] p-5 shadow-lg shadow-black/20 backdrop-blur transition hover:-translate-y-1 hover:border-limewave/50 hover:bg-white/[0.1] hover:shadow-glow">
+
+<a
+  href={`/pais/${team.slug}/`}
+  class={`group block rounded-[1.5rem] border border-slate-100 bg-white p-5 shadow-md shadow-slate-100/40 transition hover:-translate-y-1 hover:shadow-lg ${theme.hoverBorder} ${theme.hoverShadow}`}
+>
   <div class="flex items-start justify-between gap-4">
     <div>
-      <span class="text-4xl" aria-hidden="true">{team.flag}</span>
-      <p class="mt-4 text-xs font-bold uppercase tracking-[0.28em] text-limewave">Grupo {team.group}</p>
-      <h3 class="mt-2 text-xl font-black text-white">{team.name}</h3>
-      <p class="mt-1 text-sm text-slate-300">{team.countryCode}</p>
+      <img
+        src={`https://play.fifa.com/media/image/bracket_predictor/flags/world_cup_2026/${team.fifaCode}.png`}
+        alt={`Bandera de ${team.name}`}
+        class="h-9 w-auto object-contain"
+      />
+      <p class={`mt-3 text-[10px] font-extrabold uppercase tracking-[0.25em] ${theme.text}`}>Grupo {team.group}</p>
+      <h3
+        class="mt-1 text-xl font-black text-slate-900 group-hover:text-indigo-950"
+      >
+        {team.name}
+      </h3>
+      <p class="mt-0.5 text-sm text-slate-500">{team.countryCode}</p>
     </div>
     <span class:list={[
-      'rounded-full px-3 py-1 text-xs font-bold',
-      source.status === 'ready' ? 'bg-limewave/20 text-limewave' : 'bg-white/10 text-slate-300'
+      'rounded-full px-2.5 py-0.5 text-[10px] font-bold border',
+      source.status === 'ready' ? `${theme.badge}` : 'bg-slate-100 text-slate-600 border-slate-200/50'
     ]}>{source.status === 'ready' ? 'Embed listo' : 'Pendiente'}</span>
   </div>
   <div class="mt-6 flex items-end justify-between">
-    <div class="flex h-8 items-end gap-1 text-limewave" aria-hidden="true">
+    <div class={`flex h-8 items-end gap-1 ${theme.accent}`} aria-hidden="true">
       <span class="equalizer-bar h-5 w-1.5 rounded-full bg-current"></span>
       <span class="equalizer-bar h-8 w-1.5 rounded-full bg-current"></span>
       <span class="equalizer-bar h-6 w-1.5 rounded-full bg-current"></span>
       <span class="equalizer-bar h-4 w-1.5 rounded-full bg-current"></span>
     </div>
-    <span class="text-sm font-bold text-white/80 transition group-hover:text-limewave">Escuchar →</span>
+    <span
+      class={`text-xs font-black uppercase tracking-wider text-slate-700 transition ${theme.hoverText}`}
+      >Escuchar →</span
+    >
   </div>
 </a>

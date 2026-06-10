@@ -21,7 +21,15 @@ export const worldCupGroups = [
         "flag": "🇲🇽",
         "fifaCode": "MEX",
         "image": "https://images.unsplash.com/photo-1651618323341-fc9cd8a1ea83?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "nativeName": "México"
+        "nativeName": "México",
+        "profile": {
+          "capital": "Ciudad de México",
+          "capitalNativeName": "Ciudad de México",
+          "confederation": "CONCACAF",
+          "qualificationRoute": "Coanfitrión",
+          "fifaRanking": 15,
+          "worldCupAppearances": 17
+        }
       },
       {
         "name": "Sudáfrica",
@@ -29,7 +37,15 @@ export const worldCupGroups = [
         "flag": "🇿🇦",
         "fifaCode": "RSA",
         "image": "https://images.pexels.com/photos/34314897/pexels-photo-34314897.jpeg",
-        "nativeName": "South Africa"
+        "nativeName": "South Africa",
+        "profile": {
+          "capital": "Pretoria",
+          "capitalNativeName": "Pretoria",
+          "confederation": "CAF",
+          "qualificationRoute": "Clasificó por CAF",
+          "fifaRanking": 60,
+          "worldCupAppearances": 3
+        }
       },
       {
         "name": "Corea del Sur",
@@ -37,7 +53,15 @@ export const worldCupGroups = [
         "flag": "🇰🇷",
         "fifaCode": "KOR",
         "image": "https://images.pexels.com/photos/6896968/pexels-photo-6896968.jpeg",
-        "nativeName": "대한민국"
+        "nativeName": "대한민국",
+        "profile": {
+          "capital": "Seúl",
+          "capitalNativeName": "서울",
+          "confederation": "AFC",
+          "qualificationRoute": "Clasificó por AFC",
+          "fifaRanking": 25,
+          "worldCupAppearances": 10
+        }
       },
       {
         "name": "Chequia",
@@ -45,7 +69,15 @@ export const worldCupGroups = [
         "flag": "🇨🇿",
         "fifaCode": "CZE",
         "image": "https://images.pexels.com/photos/29542814/pexels-photo-29542814.jpeg",
-        "nativeName": "Česko"
+        "nativeName": "Česko",
+        "profile": {
+          "capital": "Praga",
+          "capitalNativeName": "Praha",
+          "confederation": "UEFA",
+          "qualificationRoute": "Clasificó por UEFA",
+          "fifaRanking": 41,
+          "worldCupAppearances": 1
+        }
       }
     ]
   },
@@ -71,7 +103,15 @@ export const worldCupGroups = [
         "flag": "🇨🇦",
         "fifaCode": "CAN",
         "image": "https://images.pexels.com/photos/27973593/pexels-photo-27973593.jpeg",
-        "nativeName": "Canada"
+        "nativeName": "Canada",
+        "profile": {
+          "capital": "Ottawa",
+          "capitalNativeName": "Ottawa",
+          "confederation": "CONCACAF",
+          "qualificationRoute": "Coanfitrión",
+          "fifaRanking": 30,
+          "worldCupAppearances": 2
+        }
       },
       {
         "name": "Bosnia y Herzegovina",
@@ -79,7 +119,15 @@ export const worldCupGroups = [
         "flag": "🇧🇦",
         "fifaCode": "BIH",
         "image": "https://images.pexels.com/photos/27534307/pexels-photo-27534307.jpeg",
-        "nativeName": "Bosna i Hercegovina"
+        "nativeName": "Bosna i Hercegovina",
+        "profile": {
+          "capital": "Sarajevo",
+          "capitalNativeName": "Sarajevo",
+          "confederation": "UEFA",
+          "qualificationRoute": "Clasificó por UEFA",
+          "fifaRanking": 65,
+          "worldCupAppearances": 1
+        }
       },
       {
         "name": "Qatar",
@@ -87,7 +135,15 @@ export const worldCupGroups = [
         "flag": "🇶🇦",
         "fifaCode": "QAT",
         "image": "https://images.pexels.com/photos/31583097/pexels-photo-31583097.jpeg",
-        "nativeName": "قطر"
+        "nativeName": "قطر",
+        "profile": {
+          "capital": "Doha",
+          "capitalNativeName": "الدوحة",
+          "confederation": "AFC",
+          "qualificationRoute": "Clasificó por AFC",
+          "fifaRanking": 55,
+          "worldCupAppearances": 1
+        }
       },
       {
         "name": "Suiza",
@@ -95,7 +151,15 @@ export const worldCupGroups = [
         "flag": "🇨🇭",
         "fifaCode": "SUI",
         "image": "https://images.pexels.com/photos/29933663/pexels-photo-29933663.jpeg",
-        "nativeName": "Schweiz"
+        "nativeName": "Schweiz",
+        "profile": {
+          "capital": "Berna",
+          "capitalNativeName": "Bern",
+          "confederation": "UEFA",
+          "qualificationRoute": "Clasificó por UEFA",
+          "fifaRanking": 19,
+          "worldCupAppearances": 12
+        }
       }
     ]
   },
@@ -121,7 +185,15 @@ export const worldCupGroups = [
         "flag": "🇧🇷",
         "fifaCode": "BRA",
         "image": "https://images.pexels.com/photos/37945814/pexels-photo-37945814.jpeg",
-        "nativeName": "Brasil"
+        "nativeName": "Brasil",
+        "profile": {
+          "capital": "Brasilia",
+          "capitalNativeName": "Brasília",
+          "confederation": "CONMEBOL",
+          "qualificationRoute": "Clasificó por CONMEBOL",
+          "fifaRanking": 6,
+          "worldCupAppearances": 22
+        }
       },
       {
         "name": "Marruecos",
@@ -129,7 +201,15 @@ export const worldCupGroups = [
         "flag": "🇲🇦",
         "fifaCode": "MAR",
         "image": "https://images.pexels.com/photos/28390796/pexels-photo-28390796.jpeg",
-        "nativeName": "المغرب"
+        "nativeName": "المغرب",
+        "profile": {
+          "capital": "Rabat",
+          "capitalNativeName": "الرباط",
+          "confederation": "CAF",
+          "qualificationRoute": "Clasificó por CAF",
+          "fifaRanking": 8,
+          "worldCupAppearances": 6
+        }
       },
       {
         "name": "Haití",
@@ -137,7 +217,15 @@ export const worldCupGroups = [
         "flag": "🇭🇹",
         "fifaCode": "HAI",
         "image": "https://images.pexels.com/photos/29283225/pexels-photo-29283225.jpeg",
-        "nativeName": "Ayiti"
+        "nativeName": "Ayiti",
+        "profile": {
+          "capital": "Puerto Príncipe",
+          "capitalNativeName": "Port-au-Prince",
+          "confederation": "CONCACAF",
+          "qualificationRoute": "Clasificó por CONCACAF",
+          "fifaRanking": 83,
+          "worldCupAppearances": 1
+        }
       },
       {
         "name": "Escocia",
@@ -145,7 +233,15 @@ export const worldCupGroups = [
         "flag": "🏴",
         "fifaCode": "SCO",
         "image": "https://images.pexels.com/photos/28086723/pexels-photo-28086723.jpeg",
-        "nativeName": "Scotland"
+        "nativeName": "Scotland",
+        "profile": {
+          "capital": "Edimburgo",
+          "capitalNativeName": "Edinburgh",
+          "confederation": "UEFA",
+          "qualificationRoute": "Clasificó por UEFA",
+          "fifaRanking": 43,
+          "worldCupAppearances": 7
+        }
       }
     ]
   },
@@ -171,7 +267,15 @@ export const worldCupGroups = [
         "flag": "🇺🇸",
         "fifaCode": "USA",
         "image": "https://images.pexels.com/photos/28310522/pexels-photo-28310522.jpeg",
-        "nativeName": "United States"
+        "nativeName": "United States",
+        "profile": {
+          "capital": "Washington D.C.",
+          "capitalNativeName": "Washington, D.C.",
+          "confederation": "CONCACAF",
+          "qualificationRoute": "Coanfitrión",
+          "fifaRanking": 16,
+          "worldCupAppearances": 11
+        }
       },
       {
         "name": "Paraguay",
@@ -179,7 +283,15 @@ export const worldCupGroups = [
         "flag": "🇵🇾",
         "fifaCode": "PAR",
         "image": "https://images.pexels.com/photos/6786951/pexels-photo-6786951.jpeg",
-        "nativeName": "Paraguay"
+        "nativeName": "Paraguay",
+        "profile": {
+          "capital": "Asunción",
+          "capitalNativeName": "Asunción",
+          "confederation": "CONMEBOL",
+          "qualificationRoute": "Clasificó por CONMEBOL",
+          "fifaRanking": 40,
+          "worldCupAppearances": 8
+        }
       },
       {
         "name": "Australia",
@@ -187,7 +299,15 @@ export const worldCupGroups = [
         "flag": "🇦🇺",
         "fifaCode": "AUS",
         "image": "https://images.pexels.com/photos/36983267/pexels-photo-36983267.jpeg",
-        "nativeName": "Australia"
+        "nativeName": "Australia",
+        "profile": {
+          "capital": "Canberra",
+          "capitalNativeName": "Canberra",
+          "confederation": "AFC",
+          "qualificationRoute": "Clasificó por AFC",
+          "fifaRanking": 27,
+          "worldCupAppearances": 6
+        }
       },
       {
         "name": "Turquía",
@@ -195,7 +315,15 @@ export const worldCupGroups = [
         "flag": "🇹🇷",
         "fifaCode": "TUR",
         "image": "https://images.pexels.com/photos/29021804/pexels-photo-29021804.jpeg",
-        "nativeName": "Türkiye"
+        "nativeName": "Türkiye",
+        "profile": {
+          "capital": "Ankara",
+          "capitalNativeName": "Ankara",
+          "confederation": "UEFA",
+          "qualificationRoute": "Clasificó por UEFA",
+          "fifaRanking": 22,
+          "worldCupAppearances": 2
+        }
       }
     ]
   },
@@ -221,7 +349,15 @@ export const worldCupGroups = [
         "flag": "🇩🇪",
         "fifaCode": "GER",
         "image": "https://images.pexels.com/photos/18676850/pexels-photo-18676850.jpeg",
-        "nativeName": "Deutschland"
+        "nativeName": "Deutschland",
+        "profile": {
+          "capital": "Berlín",
+          "capitalNativeName": "Berlin",
+          "confederation": "UEFA",
+          "qualificationRoute": "Clasificó por UEFA",
+          "fifaRanking": 10,
+          "worldCupAppearances": 10
+        }
       },
       {
         "name": "Curazao",
@@ -229,7 +365,15 @@ export const worldCupGroups = [
         "flag": "🇨🇼",
         "fifaCode": "CUW",
         "image": "https://images.pexels.com/photos/2188981/pexels-photo-2188981.jpeg",
-        "nativeName": "Curaçao"
+        "nativeName": "Curaçao",
+        "profile": {
+          "capital": "Willemstad",
+          "capitalNativeName": "Willemstad",
+          "confederation": "CONCACAF",
+          "qualificationRoute": "Clasificó por CONCACAF",
+          "fifaRanking": 82,
+          "worldCupAppearances": 0
+        }
       },
       {
         "name": "Costa de Marfil",
@@ -237,7 +381,15 @@ export const worldCupGroups = [
         "flag": "🇨🇮",
         "fifaCode": "CIV",
         "image": "https://images.pexels.com/photos/7381821/pexels-photo-7381821.jpeg",
-        "nativeName": "Côte d'Ivoire"
+        "nativeName": "Côte d'Ivoire",
+        "profile": {
+          "capital": "Yamusukro",
+          "capitalNativeName": "Yamoussoukro",
+          "confederation": "CAF",
+          "qualificationRoute": "Clasificó por CAF",
+          "fifaRanking": 34,
+          "worldCupAppearances": 3
+        }
       },
       {
         "name": "Ecuador",
@@ -245,7 +397,15 @@ export const worldCupGroups = [
         "flag": "🇪🇨",
         "fifaCode": "ECU",
         "image": "https://images.pexels.com/photos/11402685/pexels-photo-11402685.jpeg",
-        "nativeName": "Ecuador"
+        "nativeName": "Ecuador",
+        "profile": {
+          "capital": "Quito",
+          "capitalNativeName": "Quito",
+          "confederation": "CONMEBOL",
+          "qualificationRoute": "Clasificó por CONMEBOL",
+          "fifaRanking": 23,
+          "worldCupAppearances": 4
+        }
       }
     ]
   },
@@ -271,7 +431,15 @@ export const worldCupGroups = [
         "flag": "🇳🇱",
         "fifaCode": "NED",
         "image": "https://images.pexels.com/photos/37827192/pexels-photo-37827192.jpeg",
-        "nativeName": "Nederland"
+        "nativeName": "Nederland",
+        "profile": {
+          "capital": "Ámsterdam",
+          "capitalNativeName": "Amsterdam",
+          "confederation": "UEFA",
+          "qualificationRoute": "Clasificó por UEFA",
+          "fifaRanking": 7,
+          "worldCupAppearances": 10
+        }
       },
       {
         "name": "Japón",
@@ -279,7 +447,15 @@ export const worldCupGroups = [
         "flag": "🇯🇵",
         "fifaCode": "JPN",
         "image": "https://images.pexels.com/photos/31361588/pexels-photo-31361588.jpeg",
-        "nativeName": "日本"
+        "nativeName": "日本",
+        "profile": {
+          "capital": "Tokio",
+          "capitalNativeName": "東京",
+          "confederation": "AFC",
+          "qualificationRoute": "Clasificó por AFC",
+          "fifaRanking": 18,
+          "worldCupAppearances": 7
+        }
       },
       {
         "name": "Suecia",
@@ -287,7 +463,15 @@ export const worldCupGroups = [
         "flag": "🇸🇪",
         "fifaCode": "SWE",
         "image": "https://images.pexels.com/photos/32065562/pexels-photo-32065562.jpeg",
-        "nativeName": "Sverige"
+        "nativeName": "Sverige",
+        "profile": {
+          "capital": "Estocolmo",
+          "capitalNativeName": "Stockholm",
+          "confederation": "UEFA",
+          "qualificationRoute": "Clasificó por UEFA",
+          "fifaRanking": 38,
+          "worldCupAppearances": 12
+        }
       },
       {
         "name": "Túnez",
@@ -295,7 +479,15 @@ export const worldCupGroups = [
         "flag": "🇹🇳",
         "fifaCode": "TUN",
         "image": "https://images.pexels.com/photos/32494417/pexels-photo-32494417.jpeg",
-        "nativeName": "تونس"
+        "nativeName": "تونس",
+        "profile": {
+          "capital": "Túnez",
+          "capitalNativeName": "تونس",
+          "confederation": "CAF",
+          "qualificationRoute": "Clasificó por CAF",
+          "fifaRanking": 44,
+          "worldCupAppearances": 6
+        }
       }
     ]
   },
@@ -321,7 +513,15 @@ export const worldCupGroups = [
         "flag": "🇧🇪",
         "fifaCode": "BEL",
         "image": "https://images.pexels.com/photos/36360324/pexels-photo-36360324.jpeg",
-        "nativeName": "België"
+        "nativeName": "België",
+        "profile": {
+          "capital": "Bruselas",
+          "capitalNativeName": "Bruxelles / Brussel",
+          "confederation": "UEFA",
+          "qualificationRoute": "Clasificó por UEFA",
+          "fifaRanking": 9,
+          "worldCupAppearances": 13
+        }
       },
       {
         "name": "Egipto",
@@ -329,7 +529,15 @@ export const worldCupGroups = [
         "flag": "🇪🇬",
         "fifaCode": "EGY",
         "image": "https://images.pexels.com/photos/28709325/pexels-photo-28709325.jpeg",
-        "nativeName": "مصر"
+        "nativeName": "مصر",
+        "profile": {
+          "capital": "El Cairo",
+          "capitalNativeName": "القاهرة",
+          "confederation": "CAF",
+          "qualificationRoute": "Clasificó por CAF",
+          "fifaRanking": 29,
+          "worldCupAppearances": 3
+        }
       },
       {
         "name": "Irán",
@@ -337,7 +545,15 @@ export const worldCupGroups = [
         "flag": "🇮🇷",
         "fifaCode": "IRN",
         "image": "https://images.pexels.com/photos/20081358/pexels-photo-20081358.jpeg",
-        "nativeName": "ایران"
+        "nativeName": "ایران",
+        "profile": {
+          "capital": "Teherán",
+          "capitalNativeName": "تهران",
+          "confederation": "AFC",
+          "qualificationRoute": "Clasificó por AFC",
+          "fifaRanking": 21,
+          "worldCupAppearances": 6
+        }
       },
       {
         "name": "Nueva Zelanda",
@@ -345,7 +561,15 @@ export const worldCupGroups = [
         "flag": "🇳🇿",
         "fifaCode": "NZL",
         "image": "https://images.pexels.com/photos/30682512/pexels-photo-30682512.jpeg",
-        "nativeName": "Aotearoa"
+        "nativeName": "Aotearoa",
+        "profile": {
+          "capital": "Wellington",
+          "capitalNativeName": "Wellington",
+          "confederation": "OFC",
+          "qualificationRoute": "Clasificó por OFC",
+          "fifaRanking": 85,
+          "worldCupAppearances": 2
+        }
       }
     ]
   },
@@ -371,7 +595,15 @@ export const worldCupGroups = [
         "flag": "🇪🇸",
         "fifaCode": "ESP",
         "image": "https://images.pexels.com/photos/5675291/pexels-photo-5675291.jpeg",
-        "nativeName": "España"
+        "nativeName": "España",
+        "profile": {
+          "capital": "Madrid",
+          "capitalNativeName": "Madrid",
+          "confederation": "UEFA",
+          "qualificationRoute": "Clasificó por UEFA",
+          "fifaRanking": 2,
+          "worldCupAppearances": 16
+        }
       },
       {
         "name": "Cabo Verde",
@@ -379,7 +611,15 @@ export const worldCupGroups = [
         "flag": "🇨🇻",
         "fifaCode": "CPV",
         "image": "https://media.cntraveller.com/photos/611bf60fe98d5e6590e82b6f/16:9/w_1920,c_limit/05-cape-verde-conde-nast-traveller-18sep18-getty.jpg",
-        "nativeName": "Cabo Verde"
+        "nativeName": "Cabo Verde",
+        "profile": {
+          "capital": "Praia",
+          "capitalNativeName": "Praia",
+          "confederation": "CAF",
+          "qualificationRoute": "Clasificó por CAF",
+          "fifaRanking": 69,
+          "worldCupAppearances": 0
+        }
       },
       {
         "name": "Arabia Saudita",
@@ -387,7 +627,15 @@ export const worldCupGroups = [
         "flag": "🇸🇦",
         "fifaCode": "KSA",
         "image": "https://images.pexels.com/photos/29011169/pexels-photo-29011169.jpeg",
-        "nativeName": "السعودية"
+        "nativeName": "السعودية",
+        "profile": {
+          "capital": "Riad",
+          "capitalNativeName": "الرياض",
+          "confederation": "AFC",
+          "qualificationRoute": "Clasificó por AFC",
+          "fifaRanking": 61,
+          "worldCupAppearances": 6
+        }
       },
       {
         "name": "Uruguay",
@@ -395,7 +643,15 @@ export const worldCupGroups = [
         "flag": "🇺🇾",
         "fifaCode": "URU",
         "image": "https://images.pexels.com/photos/30618683/pexels-photo-30618683.jpeg",
-        "nativeName": "Uruguay"
+        "nativeName": "Uruguay",
+        "profile": {
+          "capital": "Montevideo",
+          "capitalNativeName": "Montevideo",
+          "confederation": "CONMEBOL",
+          "qualificationRoute": "Clasificó por CONMEBOL",
+          "fifaRanking": 17,
+          "worldCupAppearances": 14
+        }
       }
     ]
   },
@@ -421,7 +677,15 @@ export const worldCupGroups = [
         "flag": "🇫🇷",
         "fifaCode": "FRA",
         "image": "https://images.pexels.com/photos/10853440/pexels-photo-10853440.jpeg",
-        "nativeName": "France"
+        "nativeName": "France",
+        "profile": {
+          "capital": "París",
+          "capitalNativeName": "Paris",
+          "confederation": "UEFA",
+          "qualificationRoute": "Clasificó por UEFA",
+          "fifaRanking": 1,
+          "worldCupAppearances": 16
+        }
       },
       {
         "name": "Senegal",
@@ -429,7 +693,15 @@ export const worldCupGroups = [
         "flag": "🇸🇳",
         "fifaCode": "SEN",
         "image": "https://images.pexels.com/photos/24713100/pexels-photo-24713100.jpeg",
-        "nativeName": "Sénégal"
+        "nativeName": "Sénégal",
+        "profile": {
+          "capital": "Dakar",
+          "capitalNativeName": "Dakar",
+          "confederation": "CAF",
+          "qualificationRoute": "Clasificó por CAF",
+          "fifaRanking": 14,
+          "worldCupAppearances": 3
+        }
       },
       {
         "name": "Irak",
@@ -437,7 +709,15 @@ export const worldCupGroups = [
         "flag": "🇮🇶",
         "fifaCode": "IRQ",
         "image": "https://images.pexels.com/photos/34316976/pexels-photo-34316976.jpeg",
-        "nativeName": "العراق"
+        "nativeName": "العراق",
+        "profile": {
+          "capital": "Bagdad",
+          "capitalNativeName": "بغداد",
+          "confederation": "AFC",
+          "qualificationRoute": "Clasificó por AFC",
+          "fifaRanking": 57,
+          "worldCupAppearances": 1
+        }
       },
       {
         "name": "Noruega",
@@ -445,7 +725,15 @@ export const worldCupGroups = [
         "flag": "🇳🇴",
         "fifaCode": "NOR",
         "image": "https://images.pexels.com/photos/6663553/pexels-photo-6663553.jpeg",
-        "nativeName": "Norge"
+        "nativeName": "Norge",
+        "profile": {
+          "capital": "Oslo",
+          "capitalNativeName": "Oslo",
+          "confederation": "UEFA",
+          "qualificationRoute": "Clasificó por UEFA",
+          "fifaRanking": 31,
+          "worldCupAppearances": 3
+        }
       }
     ]
   },
@@ -471,7 +759,15 @@ export const worldCupGroups = [
         "flag": "🇦🇷",
         "fifaCode": "ARG",
         "image": "https://images.pexels.com/photos/26941613/pexels-photo-26941613.jpeg",
-        "nativeName": "Argentina"
+        "nativeName": "Argentina",
+        "profile": {
+          "capital": "Buenos Aires",
+          "capitalNativeName": "Buenos Aires",
+          "confederation": "CONMEBOL",
+          "qualificationRoute": "Clasificó por CONMEBOL",
+          "fifaRanking": 3,
+          "worldCupAppearances": 18
+        }
       },
       {
         "name": "Argelia",
@@ -479,7 +775,15 @@ export const worldCupGroups = [
         "flag": "🇩🇿",
         "fifaCode": "ALG",
         "image": "https://images.pexels.com/photos/13682900/pexels-photo-13682900.jpeg",
-        "nativeName": "الجزائر"
+        "nativeName": "الجزائر",
+        "profile": {
+          "capital": "Argel",
+          "capitalNativeName": "الجزائر",
+          "confederation": "CAF",
+          "qualificationRoute": "Clasificó por CAF",
+          "fifaRanking": 28,
+          "worldCupAppearances": 4
+        }
       },
       {
         "name": "Austria",
@@ -487,7 +791,15 @@ export const worldCupGroups = [
         "flag": "🇦🇹",
         "fifaCode": "AUT",
         "image": "https://images.pexels.com/photos/37801435/pexels-photo-37801435.jpeg",
-        "nativeName": "Österreich"
+        "nativeName": "Österreich",
+        "profile": {
+          "capital": "Viena",
+          "capitalNativeName": "Wien",
+          "confederation": "UEFA",
+          "qualificationRoute": "Clasificó por UEFA",
+          "fifaRanking": 24,
+          "worldCupAppearances": 7
+        }
       },
       {
         "name": "Jordania",
@@ -495,7 +807,15 @@ export const worldCupGroups = [
         "flag": "🇯🇴",
         "fifaCode": "JOR",
         "image": "https://images.pexels.com/photos/30926484/pexels-photo-30926484.jpeg",
-        "nativeName": "الأردن"
+        "nativeName": "الأردن",
+        "profile": {
+          "capital": "Amán",
+          "capitalNativeName": "عمان",
+          "confederation": "AFC",
+          "qualificationRoute": "Clasificó por AFC",
+          "fifaRanking": 63,
+          "worldCupAppearances": 0
+        }
       }
     ]
   },
@@ -521,7 +841,15 @@ export const worldCupGroups = [
         "flag": "🇵🇹",
         "fifaCode": "POR",
         "image": "https://images.pexels.com/photos/30220300/pexels-photo-30220300.jpeg",
-        "nativeName": "Portugal"
+        "nativeName": "Portugal",
+        "profile": {
+          "capital": "Lisboa",
+          "capitalNativeName": "Lisboa",
+          "confederation": "UEFA",
+          "qualificationRoute": "Clasificó por UEFA",
+          "fifaRanking": 5,
+          "worldCupAppearances": 8
+        }
       },
       {
         "name": "República Democrática del Congo",
@@ -529,7 +857,15 @@ export const worldCupGroups = [
         "flag": "🇨🇩",
         "fifaCode": "COD",
         "image": "https://images.pexels.com/photos/19582836/pexels-photo-19582836.jpeg",
-        "nativeName": "République Démocratique du Congo"
+        "nativeName": "République Démocratique du Congo",
+        "profile": {
+          "capital": "Kinshasa",
+          "capitalNativeName": "Kinshasa",
+          "confederation": "CAF",
+          "qualificationRoute": "Clasificó por CAF",
+          "fifaRanking": 46,
+          "worldCupAppearances": 0
+        }
       },
       {
         "name": "Uzbekistán",
@@ -537,7 +873,15 @@ export const worldCupGroups = [
         "flag": "🇺🇿",
         "fifaCode": "UZB",
         "image": "https://images.pexels.com/photos/19473636/pexels-photo-19473636.jpeg",
-        "nativeName": "Oʻzbekiston"
+        "nativeName": "Oʻzbekiston",
+        "profile": {
+          "capital": "Taskent",
+          "capitalNativeName": "Toshkent",
+          "confederation": "AFC",
+          "qualificationRoute": "Clasificó por AFC",
+          "fifaRanking": 50,
+          "worldCupAppearances": 0
+        }
       },
       {
         "name": "Colombia",
@@ -545,7 +889,15 @@ export const worldCupGroups = [
         "flag": "🇨🇴",
         "fifaCode": "COL",
         "image": "https://images.pexels.com/photos/18823845/pexels-photo-18823845.jpeg",
-        "nativeName": "Colombia"
+        "nativeName": "Colombia",
+        "profile": {
+          "capital": "Bogotá",
+          "capitalNativeName": "Bogotá",
+          "confederation": "CONMEBOL",
+          "qualificationRoute": "Clasificó por CONMEBOL",
+          "fifaRanking": 13,
+          "worldCupAppearances": 6
+        }
       }
     ]
   },
@@ -571,7 +923,15 @@ export const worldCupGroups = [
         "flag": "🏴",
         "fifaCode": "ENG",
         "image": "https://images.pexels.com/photos/17860084/pexels-photo-17860084.jpeg",
-        "nativeName": "England"
+        "nativeName": "England",
+        "profile": {
+          "capital": "Londres",
+          "capitalNativeName": "London",
+          "confederation": "UEFA",
+          "qualificationRoute": "Clasificó por UEFA",
+          "fifaRanking": 4,
+          "worldCupAppearances": 16
+        }
       },
       {
         "name": "Croacia",
@@ -579,7 +939,15 @@ export const worldCupGroups = [
         "flag": "🇭🇷",
         "fifaCode": "CRO",
         "image": "https://images.pexels.com/photos/19669829/pexels-photo-19669829.jpeg",
-        "nativeName": "Hrvatska"
+        "nativeName": "Hrvatska",
+        "profile": {
+          "capital": "Zagreb",
+          "capitalNativeName": "Zagreb",
+          "confederation": "UEFA",
+          "qualificationRoute": "Clasificó por UEFA",
+          "fifaRanking": 11,
+          "worldCupAppearances": 6
+        }
       },
       {
         "name": "Ghana",
@@ -587,7 +955,15 @@ export const worldCupGroups = [
         "flag": "🇬🇭",
         "fifaCode": "GHA",
         "image": "https://images.pexels.com/photos/33697675/pexels-photo-33697675.jpeg",
-        "nativeName": "Ghana"
+        "nativeName": "Ghana",
+        "profile": {
+          "capital": "Accra",
+          "capitalNativeName": "Accra",
+          "confederation": "CAF",
+          "qualificationRoute": "Clasificó por CAF",
+          "fifaRanking": 74,
+          "worldCupAppearances": 4
+        }
       },
       {
         "name": "Panamá",
@@ -595,7 +971,15 @@ export const worldCupGroups = [
         "flag": "🇵🇦",
         "fifaCode": "PAN",
         "image": "https://images.pexels.com/photos/32119729/pexels-photo-32119729.jpeg",
-        "nativeName": "Panamá"
+        "nativeName": "Panamá",
+        "profile": {
+          "capital": "Ciudad de Panamá",
+          "capitalNativeName": "Ciudad de Panamá",
+          "confederation": "CONCACAF",
+          "qualificationRoute": "Clasificó por CONCACAF",
+          "fifaRanking": 33,
+          "worldCupAppearances": 1
+        }
       }
     ]
   }

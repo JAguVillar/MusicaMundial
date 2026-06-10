@@ -57,17 +57,64 @@ const cultureImg = getCultureImage(team);
       )
     }
 
-    <div class="mt-8 grid gap-3 sm:grid-cols-2">
-      <div class="rounded-2xl border border-white/10 bg-white/10 p-4">
-        <p class="text-sm text-indigo-200">Código</p>
-        <p class="mt-1 text-2xl font-black text-white">
-          {team.countryCode}
+    <div class="mt-8 grid gap-3 grid-cols-2">
+      <!-- Tarjeta 1: Confederación -->
+      <div class="rounded-2xl border border-white/10 bg-white/10 p-4 flex flex-col justify-between">
+        <div>
+          <p class="text-sm text-indigo-200">Confederación</p>
+          <p class="mt-1 text-2xl font-black text-white">
+            {team.profile.confederation}
+          </p>
+        </div>
+        <p class="mt-2 text-xs text-indigo-300 font-medium leading-tight">
+          {team.profile.qualificationRoute}
         </p>
       </div>
-      <div class="rounded-2xl border border-white/10 bg-white/10 p-4">
-        <p class="text-sm text-indigo-200">Estado musical</p>
-        <p class="mt-1 text-lg font-black text-white">{source.label}</p>
+
+      <!-- Tarjeta 2: Capital -->
+      <div class="rounded-2xl border border-white/10 bg-white/10 p-4 flex flex-col justify-between">
+        <div>
+          <p class="text-sm text-indigo-200">Capital</p>
+          <p class="mt-1 text-2xl font-black text-white leading-tight">
+            {team.profile.capital}
+          </p>
+        </div>
+        {team.profile.capitalNativeName && team.profile.capitalNativeName !== team.profile.capital && (
+          <p class="mt-2 text-xs text-indigo-300 font-semibold tracking-wide">
+            {team.profile.capitalNativeName}
+          </p>
+        )}
       </div>
+
+      <!-- Tarjeta 3: Participaciones -->
+      <div class="rounded-2xl border border-white/10 bg-white/10 p-4 flex flex-col justify-between">
+        <div>
+          <p class="text-sm text-indigo-200">Mundiales</p>
+          <p class={`mt-1 font-black text-white leading-tight ${team.profile.worldCupAppearances === 0 ? 'text-lg md:text-xl' : 'text-2xl'}`}>
+            {team.profile.worldCupAppearances === 0 ? "Debut mundialista" : team.profile.worldCupAppearances}
+          </p>
+        </div>
+        {team.profile.worldCupAppearances > 0 && (
+          <p class="mt-2 text-xs text-indigo-300 font-medium">
+            {team.profile.worldCupAppearances === 1 ? "participación" : "participaciones"}
+          </p>
+        )}
+      </div>
+
+      <!-- Tarjeta 4: Ranking FIFA (Condicional) -->
+      {team.profile.fifaRanking !== null && (
+        <div class="rounded-2xl border border-white/10 bg-white/10 p-4 flex flex-col justify-between">
+          <div>
+            <p class="text-sm text-indigo-200">Ranking FIFA</p>
+            <p class="mt-1 text-2xl font-black text-white">
+              #{team.profile.fifaRanking}
+            </p>
+          </div>
+          <p class="mt-2 text-xs text-indigo-300 font-medium">
+            posición oficial
+          </p>
+        </div>
+      )}
     </div>
     <p
       class="mt-6 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm leading-7 text-indigo-100"

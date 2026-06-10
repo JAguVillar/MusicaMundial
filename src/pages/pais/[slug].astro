@@ -30,11 +30,12 @@ const cultureImg =
 <BaseLayout
   title={`${team.name} | Música Mundial`}
   description={`Playlist y soundtrack de ${team.name} para el Mundial 2026.`}
+  bodyClass={team.theme.bg}
 >
   <main class="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
     <a
       href="/"
-      class="inline-flex items-center gap-2 border border-slate-950 text-slate-950 hover:bg-slate-950 hover:text-white rounded-tl-none rounded-tr-full rounded-br-full rounded-bl-full px-5 py-2 text-xs font-black uppercase tracking-wider transition-all duration-200"
+      class={`inline-flex items-center gap-2 border rounded-tl-none rounded-tr-full rounded-br-full rounded-bl-full px-5 py-2 text-xs font-black uppercase tracking-wider transition-all duration-200 ${team.theme.outlineBtn}`}
       >← Volver a grupos</a
     >
 
@@ -119,7 +120,7 @@ const cultureImg =
     <section class="mt-12">
       <div class="mb-5 flex items-center justify-between gap-3">
         <div>
-          <p class="text-xs font-extrabold uppercase text-indigo-600">
+          <p class={`text-xs font-extrabold uppercase ${team.theme.text}`}>
             También en el grupo {team.group}
           </p>
           <h2 class="mt-2 text-3xl font-black text-slate-900">
@@ -128,7 +129,7 @@ const cultureImg =
         </div>
         <a
           href={`/grupo/${team.group.toLowerCase()}/`}
-          class="border border-slate-950 text-slate-950 hover:bg-slate-950 hover:text-white rounded-tl-none rounded-tr-full rounded-br-full rounded-bl-full px-5 py-2 text-xs font-black uppercase tracking-wider transition-all duration-200"
+          class={`border rounded-tl-none rounded-tr-full rounded-br-full rounded-bl-full px-5 py-2 text-xs font-black uppercase tracking-wider transition-all duration-200 ${team.theme.outlineBtn}`}
           >Ver grupo</a
         >
       </div>

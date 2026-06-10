@@ -3,7 +3,8 @@ import '../styles/global.css';
 
 const {
   title = 'Música Mundial',
-  description = 'Soundtracks estáticos del Mundial 2026 con embeds públicos de Spotify por selección.'
+  description = 'Soundtracks estáticos del Mundial 2026 con embeds públicos de Spotify por selección.',
+  bodyClass = ''
 } = Astro.props;
 ---
 <!doctype html>
@@ -37,7 +38,7 @@ const {
       }
     </style>
   </head>
-  <body class="font-sans antialiased">
+  <body class={`font-sans antialiased transition-colors duration-500 ${bodyClass}`}>
     <div class="min-h-screen">
       <slot />
     </div>

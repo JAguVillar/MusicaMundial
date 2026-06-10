@@ -1,9 +1,50 @@
+<<<<<<< HEAD
+=======
+@font-face {
+  font-family: 'Clash Display';
+  src: url('/fonts/ClashDisplay-Variable.woff2') format('woff2-variations'),
+       url('/fonts/ClashDisplay-Variable.woff2') format('woff2');
+  font-weight: 200 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Archivo';
+  src: url('/fonts/Archivo-Variable.woff2') format('woff2-variations'),
+       url('/fonts/Archivo-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Archivo';
+  src: url('/fonts/Archivo-VariableItalic.woff2') format('woff2-variations'),
+       url('/fonts/Archivo-VariableItalic.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: italic;
+}
+
+>>>>>>> feature/host-city-logo-colors
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+<<<<<<< HEAD
 :root {
   color-scheme: dark;
+=======
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Clash Display', sans-serif;
+  }
+}
+
+:root {
+  color-scheme: light;
+>>>>>>> feature/host-city-logo-colors
 }
 
 html {
@@ -12,6 +53,7 @@ html {
 
 body {
   min-height: 100vh;
+<<<<<<< HEAD
   background:
     radial-gradient(circle at top left, rgba(182, 255, 92, 0.18), transparent 32rem),
     radial-gradient(circle at 85% 15%, rgba(34, 211, 238, 0.12), transparent 28rem),
@@ -25,6 +67,12 @@ body {
     linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
   background-size: 34px 34px;
 }
+=======
+  background: #ffffff;
+  color: #0f172a;
+}
+
+>>>>>>> feature/host-city-logo-colors
 
 .equalizer-bar {
   animation: pulse-wave 1.2s ease-in-out infinite;
@@ -39,3 +87,61 @@ body {
   0%, 100% { transform: scaleY(0.42); opacity: 0.65; }
   50% { transform: scaleY(1); opacity: 1; }
 }
+<<<<<<< HEAD
+=======
+
+
+
+.hero-stat {
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.055);
+  padding: 0.85rem 0.6rem;
+  backdrop-filter: blur(18px);
+}
+
+.hero-stat strong {
+  display: block;
+  color: #ffffff;
+  font-size: 1.65rem;
+  font-weight: 950;
+  line-height: 1;
+}
+
+.hero-stat span {
+  margin-top: 0.35rem;
+  display: block;
+  color: #c7d2fe;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.hero-filter-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  background: rgba(255, 255, 255, 0.035);
+  padding: 1rem;
+}
+
+.hero-filter-item span {
+  font-size: 1.35rem;
+}
+
+.hero-filter-item p {
+  color: #67e8f9;
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-filter-item strong {
+  display: block;
+  margin-top: 0.15rem;
+  color: #ffffff;
+  font-size: 0.98rem;
+}
+>>>>>>> feature/host-city-logo-colors

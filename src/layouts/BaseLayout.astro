@@ -3,7 +3,12 @@ import '../styles/global.css';
 
 const {
   title = 'Música Mundial',
+<<<<<<< HEAD
   description = 'Soundtracks estáticos del Mundial 2026 con embeds públicos de Spotify por selección.'
+=======
+  description = 'Soundtracks estáticos del Mundial 2026 con embeds públicos de Spotify por selección.',
+  bodyClass = ''
+>>>>>>> feature/host-city-logo-colors
 } = Astro.props;
 ---
 <!doctype html>
@@ -14,9 +19,37 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
+<<<<<<< HEAD
   </head>
   <body class="font-sans antialiased">
     <div class="sound-grid min-h-screen">
+=======
+    <script is:inline>
+      (function() {
+        const referrer = document.referrer;
+        const isFromDetail = referrer && (referrer.indexOf("/pais/") !== -1 || referrer.indexOf("/grupo/") !== -1);
+        const isHome = window.location.pathname === "/" || window.location.pathname === "/index.html";
+        
+        if (isHome && isFromDetail && sessionStorage.getItem("homeScrollPosition") !== null) {
+          document.documentElement.classList.add("js-scroll-restoring");
+          
+          // Failsafe: ensure page displays even if restoration script fails
+          setTimeout(function() {
+            document.documentElement.classList.remove("js-scroll-restoring");
+          }, 1000);
+        }
+      })();
+    </script>
+    <style>
+      .js-scroll-restoring body {
+        opacity: 0 !important;
+        transition: none !important;
+      }
+    </style>
+  </head>
+  <body class={`font-sans antialiased transition-colors duration-500 ${bodyClass}`}>
+    <div class="min-h-screen">
+>>>>>>> feature/host-city-logo-colors
       <slot />
     </div>
   </body>

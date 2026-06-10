@@ -25,6 +25,28 @@ const groupMates = teams.filter(
 const cultureImg =
   team.image ||
   `https://images.unsplash.com/featured/800x600/?${encodeURIComponent(team.name)},culture,landscape`;
+
+function getLowResPlaceholder(url) {
+  if (!url) return "";
+  try {
+    const urlObj = new URL(url);
+    if (urlObj.hostname.includes("unsplash.com")) {
+      urlObj.searchParams.set("w", "40");
+      urlObj.searchParams.set("q", "20");
+      return urlObj.toString();
+    } else if (urlObj.hostname.includes("pexels.com")) {
+      urlObj.searchParams.set("auto", "compress");
+      urlObj.searchParams.set("cs", "tinysrgb");
+      urlObj.searchParams.set("w", "40");
+      return urlObj.toString();
+    }
+  } catch (e) {
+    // Si no es una URL válida, retornar la original
+  }
+  return url;
+}
+
+const lowResImg = getLowResPlaceholder(cultureImg);
 ---
 
 <BaseLayout
@@ -44,11 +66,23 @@ const cultureImg =
       <div
         class="relative overflow-hidden rounded-[2.5rem] rounded-bl-[80px] bg-[#12135a] text-white shadow-xl transition-all duration-300"
       >
-        <!-- Imagen de fondo -->
-        <div
-          class="absolute inset-0 z-0 bg-cover bg-center"
-          style={`background-image: url('${cultureImg}')`}
-        >
+        <!-- Imagen de fondo con carga progresiva blur-up -->
+        <div class="absolute inset-0 z-0 overflow-hidden">
+          <img
+            src={lowResImg}
+            alt=""
+            aria-hidden="true"
+            class="absolute inset-0 h-full w-full object-cover object-center blur-2xl transition-opacity duration-500 scale-105"
+            id="bg-placeholder"
+          />
+          <img
+            src={cultureImg}
+            alt={`Cultura de ${team.name}`}
+            loading="eager"
+            decoding="async"
+            class="absolute inset-0 h-full w-full object-cover object-center opacity-0 transition-opacity duration-700 ease-out"
+            onload="this.classList.remove('opacity-0'); document.getElementById('bg-placeholder')?.classList.add('opacity-0');"
+          />
         </div>
         <div
           class="absolute inset-0 z-0 bg-gradient-to-t from-[#12135a] via-[#12135a]/70 to-[#12135a]/35"
@@ -139,3 +173,40 @@ const cultureImg =
     </section>
   </main>
 </BaseLayout>
+
+<script>
+  function handleLoaders() {
+    // 1. Ocultar placeholders de imágenes que ya se cargaron (por ejemplo, desde caché)
+    const images = document.querySelectorAll('img[onload]');
+    images.forEach((img) => {
+      const htmlImg = img as HTMLImageElement;
+      if (htmlImg.complete) {
+        htmlImg.classList.remove('opacity-0');
+        const placeholder = htmlImg.previousElementSibling;
+        if (placeholder && placeholder.id === 'bg-placeholder') {
+          placeholder.classList.add('opacity-0');
+        }
+      }
+    });
+
+    // 2. Ocultar loaders de Spotify si el iframe ya terminó de cargarse de caché
+    const iframes = document.querySelectorAll('iframe[onload]');
+    iframes.forEach((iframe) => {
+      const htmlIframe = iframe as HTMLIFrameElement;
+      if (htmlIframe.classList.contains('opacity-0') && htmlIframe.getBoundingClientRect().height > 0) {
+        setTimeout(() => {
+          const loader = document.getElementById('spotify-loader');
+          if (loader) {
+            htmlIframe.classList.remove('opacity-0');
+            loader.classList.add('pointer-events-none', 'opacity-0');
+            setTimeout(() => loader.remove(), 500);
+          }
+        }, 1000);
+      }
+    });
+  }
+
+  // Escuchar tanto la carga inicial como las transiciones de página de Astro
+  document.addEventListener('DOMContentLoaded', handleLoaders);
+  document.addEventListener('astro:page-load', handleLoaders);
+</script>

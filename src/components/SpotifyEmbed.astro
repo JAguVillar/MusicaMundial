@@ -2,18 +2,35 @@
 import SpotifyIcon from "./icons/spotify.astro";
 const { source, title = 'Playlist de Spotify' } = Astro.props;
 ---
-<div class="overflow-hidden rounded-[2rem] border border-white/10 bg-black/30 p-3 shadow-2xl shadow-black/30 backdrop-blur">
+<div class="relative overflow-hidden rounded-[2rem] border border-white/10 bg-black/30 p-3 shadow-2xl shadow-black/30 backdrop-blur min-h-[444px] md:min-h-[544px]">
   {source.status === 'ready' ? (
-    <iframe
-      class="h-[420px] w-full rounded-[1.5rem] md:h-[520px]"
-      src={source.embedUrl}
-      title={title}
-      width="100%"
-      height="520"
-      frameborder="0"
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-      loading="lazy"
-    ></iframe>
+    <>
+      <!-- Loader Spotify Latiente -->
+      <div
+        id="spotify-loader"
+        class="absolute inset-3 z-10 flex flex-col items-center justify-center gap-4 rounded-[1.5rem] bg-[#121212] transition-opacity duration-500"
+      >
+        <div class="animate-heartbeat">
+          <SpotifyIcon class="h-20 w-20 text-[#1ED760]" />
+        </div>
+        <p class="text-xs font-bold text-zinc-400 tracking-wider uppercase animate-pulse">
+          Cargando playlist...
+        </p>
+      </div>
+
+      <iframe
+        id="spotify-iframe"
+        class="opacity-0 transition-opacity duration-500 h-[420px] w-full rounded-[1.5rem] md:h-[520px]"
+        src={source.embedUrl}
+        title={title}
+        width="100%"
+        height="520"
+        frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+        onload="this.classList.remove('opacity-0'); document.getElementById('spotify-loader')?.classList.add('pointer-events-none', 'opacity-0'); setTimeout(() => document.getElementById('spotify-loader')?.remove(), 500);"
+      ></iframe>
+    </>
   ) : (
     <div class="flex min-h-[320px] flex-col items-center justify-center gap-5 rounded-[1.5rem] border border-dashed border-white/20 bg-white/[0.04] p-8 text-center">
       <div class="text-6xl">🎧</div>
@@ -28,3 +45,17 @@ const { source, title = 'Playlist de Spotify' } = Astro.props;
     </div>
   )}
 </div>
+
+<style>
+  @keyframes heartbeat {
+    0% { transform: scale(1); }
+    14% { transform: scale(1.1); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.1); }
+    70% { transform: scale(1); }
+  }
+  .animate-heartbeat {
+    display: inline-block;
+    animation: heartbeat 1.5s infinite ease-in-out;
+  }
+</style>

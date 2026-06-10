@@ -1,0 +1,29 @@
+---
+interface Props {
+  href: string;
+  themeClass?: string;
+  class?: string;
+  target?: string;
+  rel?: string;
+  ariaLabel?: string;
+}
+
+const {
+  href,
+  themeClass = 'border-slate-950 text-slate-950 hover:bg-slate-950 hover:text-white',
+  class: className = '',
+  target,
+  rel,
+  ariaLabel
+} = Astro.props;
+---
+
+<a
+  href={href}
+  target={target}
+  rel={rel}
+  aria-label={ariaLabel}
+  class={`inline-flex items-center justify-center gap-2 rounded-tl-none rounded-tr-full rounded-br-full rounded-bl-full px-5 py-2 text-xs font-black uppercase tracking-wider transition-all duration-200 ${themeClass} ${className}`}
+>
+  <slot />
+</a>

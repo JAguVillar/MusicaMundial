@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import TeamCard from "../../components/TeamCard.astro";
 import SpotifyEmbed from "../../components/SpotifyEmbed.astro";
+import PillButton from "../../components/ui/PillButton.astro";
 import { worldCupGroups, teams } from "../../data/worldCupGroups.js";
 import { getSpotifySource } from "../../data/musicSources.js";
 
@@ -27,11 +28,12 @@ const featuredSource = getSpotifySource(featuredTeam);
   bodyClass={group.theme.bg}
 >
   <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-    <a
+    <PillButton
       href="/"
-      class={`inline-flex items-center gap-2 border rounded-tl-none rounded-tr-full rounded-br-full rounded-bl-full px-5 py-2 text-xs font-black uppercase tracking-wider transition-all duration-200 ${group.theme.outlineBtn}`}
-      >← Volver a home</a
+      themeClass={group.theme.outlineBtn}
     >
+      ← Volver a home
+    </PillButton>
 
     <div
       class="mt-6 rounded-[2.5rem] rounded-bl-[80px] bg-[#12135a] p-8 md:p-12 text-white shadow-xl"
@@ -63,7 +65,9 @@ const featuredSource = getSpotifySource(featuredTeam);
         >
           <img
             src={`https://play.fifa.com/media/image/bracket_predictor/flags/world_cup_2026/${featuredTeam.fifaCode}.png`}
-            alt=""
+            alt={`Bandera de ${featuredTeam.name}`}
+            loading="lazy"
+            decoding="async"
             class="h-8 w-auto object-contain"
           />
           {featuredTeam.name}

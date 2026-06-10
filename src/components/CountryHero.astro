@@ -1,0 +1,90 @@
+---
+import { getCultureImage } from '../utils/image.js';
+import ProgressiveImage from './ui/ProgressiveImage.astro';
+import SpotifyIcon from './icons/spotify.astro';
+import PillButton from './ui/PillButton.astro';
+
+interface Props {
+  team: any;
+  source: any;
+}
+
+const { team, source } = Astro.props;
+const cultureImg = getCultureImage(team);
+---
+
+<div
+  class="relative overflow-hidden rounded-[2.5rem] rounded-bl-[80px] bg-[#12135a] text-white shadow-xl transition-all duration-300 w-full"
+>
+  <!-- Imagen de fondo con carga progresiva -->
+  <div class="absolute inset-0 z-0 overflow-hidden">
+    <ProgressiveImage
+      src={cultureImg}
+      alt=""
+      loading="eager"
+    />
+  </div>
+  <div
+    class="absolute inset-0 z-0 bg-gradient-to-t from-[#12135a] via-[#12135a]/70 to-[#12135a]/35"
+  >
+  </div>
+
+  <!-- Cuerpo de la Tarjeta -->
+  <div class="relative z-10 p-8 md:p-10 flex flex-col">
+    <div>
+      <img
+        src={`https://play.fifa.com/media/image/bracket_predictor/flags/world_cup_2026/${team.fifaCode}.png`}
+        alt={`Bandera de ${team.name}`}
+        loading="lazy"
+        decoding="async"
+        class="h-16 w-auto object-contain"
+      />
+    </div>
+
+    <p class="mt-6 text-xs font-extrabold uppercase text-cyan-200">
+      Grupo {team.group}
+    </p>
+    <h1
+      class="mt-3 text-5xl font-black leading-none text-white md:text-6xl"
+    >
+      {team.name}
+    </h1>
+    {
+      team.nativeName && (
+        <p class="mt-2 text-xl font-semibold text-cyan-200/90 tracking-wide">
+          {team.nativeName}
+        </p>
+      )
+    }
+
+    <div class="mt-8 grid gap-3 sm:grid-cols-2">
+      <div class="rounded-2xl border border-white/10 bg-white/10 p-4">
+        <p class="text-sm text-indigo-200">Código</p>
+        <p class="mt-1 text-2xl font-black text-white">
+          {team.countryCode}
+        </p>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-white/10 p-4">
+        <p class="text-sm text-indigo-200">Estado musical</p>
+        <p class="mt-1 text-lg font-black text-white">{source.label}</p>
+      </div>
+    </div>
+    <p
+      class="mt-6 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm leading-7 text-indigo-100"
+    >
+      {source.sourceNote}
+    </p>
+
+    <div class="mt-6 flex">
+      <PillButton
+        href={source.openUrl}
+        target="_blank"
+        rel="noreferrer"
+        themeClass="border-2 border-white bg-white text-[#12135a] hover:bg-[#12135a] hover:text-white hover:border-white px-6 py-3"
+      >
+        <SpotifyIcon class="w-4 h-4" />
+        Abrir en Spotify
+      </PillButton>
+    </div>
+  </div>
+</div>

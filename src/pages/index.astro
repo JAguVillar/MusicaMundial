@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { teams, worldCupGroups } from "../data/worldCupGroups.js";
 import { getSpotifySource } from "../data/musicSources.js";
 import GroupSection from "../components/GroupSection.astro";
+import PillButton from "../components/ui/PillButton.astro";
 
 const readyCount = teams.filter(
   (team) => getSpotifySource(team).status === "ready",
@@ -16,7 +17,7 @@ const readyCount = teams.filter(
       aria-label="Hero Música Mundial"
     >
       <div
-        class="mx-auto flex min-h-[calc(100vh-3rem)] w-full max-w-7xl flex-col"
+        class="mx-auto flex min-h-[calc(100dvh-3rem)] w-full max-w-7xl flex-col"
       >
         <div
           id="hero-content"
@@ -50,12 +51,12 @@ const readyCount = teams.filter(
     <nav class="mt-12 flex flex-wrap gap-2" aria-label="Selector de grupos">
       {
         worldCupGroups.map((group) => (
-          <a
+          <PillButton
             href={`#grupo-${group.group}`}
-            class="border border-slate-950 text-slate-950 hover:bg-slate-950 hover:text-white rounded-tl-none rounded-tr-full rounded-br-full rounded-bl-full px-5 py-2.5 text-xs font-black uppercase tracking-wider transition-all duration-200"
+            themeClass="border border-slate-950 text-slate-950 hover:bg-slate-950 hover:text-white px-5 py-2.5"
           >
             Grupo {group.group}
-          </a>
+          </PillButton>
         ))
       }
     </nav>

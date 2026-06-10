@@ -1,5 +1,8 @@
 ---
 import TeamCard from "./TeamCard.astro";
+import PillButton from "./ui/PillButton.astro";
+import { slugifyTeam } from "../data/worldCupGroups.js";
+
 const { group } = Astro.props;
 ---
 
@@ -14,11 +17,12 @@ const { group } = Astro.props;
       </p>
       <h2 class="text-3xl font-black text-slate-900">{group.group}</h2>
     </div>
-    <a
+    <PillButton
       href={`/grupo/${group.group.toLowerCase()}/`}
-      class={`border rounded-tl-none rounded-tr-full rounded-br-full rounded-bl-full px-5 py-2 text-xs font-black uppercase tracking-wider transition-all duration-200 ${group.theme.verGruposBtn}`}
-      >Ver grupo</a
+      themeClass={group.theme.verGruposBtn}
     >
+      Ver grupo
+    </PillButton>
   </div>
   <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
     {
@@ -27,7 +31,7 @@ const { group } = Astro.props;
           team={{
             ...team,
             group: group.group,
-            slug: team.countryCode.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+            slug: slugifyTeam(team),
             theme: group.theme,
           }}
         />

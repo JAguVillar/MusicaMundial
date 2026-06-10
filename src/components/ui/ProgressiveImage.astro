@@ -1,0 +1,59 @@
+---
+import { getLowResPlaceholder } from '../../utils/image.js';
+
+interface Props {
+  src: string;
+  alt?: string;
+  class?: string;
+  loading?: 'eager' | 'lazy';
+}
+
+const { src, alt = '', class: className = '', loading = 'lazy' } = Astro.props;
+const lowResSrc = getLowResPlaceholder(src);
+---
+
+<div class="relative overflow-hidden w-full h-full progress-image-container">
+  <!-- Imagen de baja resolución (se carga al instante con blur) -->
+  <img
+    src={lowResSrc}
+    alt=""
+    aria-hidden="true"
+    class="absolute inset-0 h-full w-full object-cover object-center blur-2xl transition-opacity duration-500 scale-105 progress-placeholder"
+  />
+  <!-- Imagen de alta resolución (se carga asíncronamente y reemplaza a la anterior) -->
+  <img
+    src={src}
+    alt={alt}
+    loading={loading}
+    decoding="async"
+    class={`absolute inset-0 h-full w-full object-cover object-center opacity-0 transition-opacity duration-700 ease-out progress-highres ${className}`}
+  />
+</div>
+
+<script>
+  function setupProgressiveImages() {
+    const containers = document.querySelectorAll('.progress-image-container');
+    
+    containers.forEach((container) => {
+      const highRes = container.querySelector('.progress-highres') as HTMLImageElement;
+      const placeholder = container.querySelector('.progress-placeholder');
+      
+      if (!highRes || !placeholder) return;
+      
+      const handleLoad = () => {
+        highRes.classList.remove('opacity-0');
+        placeholder.classList.add('opacity-0');
+      };
+      
+      if (highRes.complete) {
+        handleLoad();
+      } else {
+        highRes.addEventListener('load', handleLoad);
+      }
+    });
+  }
+
+  // Registrar listeners para soporte completo de SPA y View Transitions
+  document.addEventListener('DOMContentLoaded', setupProgressiveImages);
+  document.addEventListener('astro:page-load', setupProgressiveImages);
+</script>

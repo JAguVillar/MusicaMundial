@@ -1,0 +1,33 @@
+---
+interface Props {
+  active?: boolean;
+  themeClass?: string;
+  class?: string;
+}
+
+const { active = true, themeClass = '', class: className = '' } = Astro.props;
+---
+
+{
+  active ? (
+    <div
+      class={`flex h-8 items-end gap-1 ${themeClass} ${className}`}
+      aria-hidden="true"
+    >
+      <span class="equalizer-bar h-5 w-1.5 rounded-full bg-current" />
+      <span class="equalizer-bar h-8 w-1.5 rounded-full bg-current" />
+      <span class="equalizer-bar h-6 w-1.5 rounded-full bg-current" />
+      <span class="equalizer-bar h-4 w-1.5 rounded-full bg-current" />
+    </div>
+  ) : (
+    <div
+      class={`flex h-8 items-end pb-1 gap-1.5 ${themeClass} opacity-50 ${className}`}
+      aria-hidden="true"
+    >
+      <span class="h-1.5 w-1.5 rounded-full bg-current" />
+      <span class="h-1.5 w-1.5 rounded-full bg-current" />
+      <span class="h-1.5 w-1.5 rounded-full bg-current" />
+      <span class="h-1.5 w-1.5 rounded-full bg-current" />
+    </div>
+  )
+}

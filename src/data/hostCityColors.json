@@ -1,0 +1,66 @@
+{
+  "atlanta": {
+    "background": "#114016",
+    "accent": "#00bed5"
+  },
+  "boston": {
+    "background": "#ffab41",
+    "accent": "#197d1c"
+  },
+  "dallas": {
+    "background": "#b0ea00",
+    "accent": "#025f64"
+  },
+  "guadalajara": {
+    "background": "#1ee8b6",
+    "accent": "#ea1e62"
+  },
+  "houston": {
+    "background": "#193b9c",
+    "accent": "#2395f2"
+  },
+  "kansas_city": {
+    "background": "#1a237e",
+    "accent": "#fc1446"
+  },
+  "los_angeles": {
+    "background": "#f4fe81",
+    "accent": "#fa5353"
+  },
+  "mexico_city": {
+    "background": "#ff9003",
+    "accent": "#7c4dff"
+  },
+  "miami": {
+    "background": "#80ddec",
+    "accent": "#f06191"
+  },
+  "monterrey": {
+    "background": "#24146d",
+    "accent": "#03bda8"
+  },
+  "new_york_new_jersey": {
+    "background": "#03bfa6",
+    "accent": "#101650"
+  },
+  "philadelphia": {
+    "background": "#82b1ff",
+    "accent": "#193b9c"
+  },
+  "san_francisco_bay_area": {
+    "background": "#bbf6ca",
+    "accent": "#dd2c02"
+  },
+  "seattle": {
+    "background": "#4a148c",
+    "accent": "#817712"
+  },
+  "toronto": {
+    "background": "#b0ea00",
+    "accent": "#304efe"
+  },
+  "vancouver": {
+    "background": "#a7feeb",
+    "accent": "#02342e"
+  }
+}

@@ -45,7 +45,7 @@ export const getSpotifySource = (team) => {
     status: playlistId ? 'ready' : 'pending',
     label: playlistId ? 'Top 50 Spotify' : 'Playlist pendiente',
     sourceNote: playlistId
-      ? 'Playlist pública de Spotify. El contenido se actualiza desde Spotify y puede variar por región.'
+      ? `Descubrí qué escucha ${team.name} durante el camino al Mundial 2026.`
       : 'Pendiente de curación manual. Mientras tanto, enlazamos una búsqueda en Spotify para encontrar playlists del país.'
   };
 };

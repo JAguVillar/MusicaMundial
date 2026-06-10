@@ -1,0 +1,119 @@
+---
+import SpotifyIcon from './icons/spotify.astro';
+
+const featuredFlags = [
+  { name: 'Argentina', code: 'ARG' },
+  { name: 'Brasil', code: 'BRA' },
+  { name: 'España', code: 'ESP' },
+  { name: 'Francia', code: 'FRA' },
+  { name: 'México', code: 'MEX' },
+  { name: 'Japón', code: 'JPN' },
+  { name: 'Corea del Sur', code: 'KOR' },
+  { name: 'Alemania', code: 'GER' },
+  { name: 'Portugal', code: 'POR' },
+  { name: 'Inglaterra', code: 'ENG' },
+  { name: 'Uruguay', code: 'URU' },
+  { name: 'Colombia', code: 'COL' }
+];
+---
+
+<div
+  class="relative bg-[#06092b] flex flex-col items-center justify-between px-4 pt-16 pb-12 sm:px-6 lg:px-8 text-center overflow-hidden min-h-[92dvh]"
+  style="clip-path: ellipse(95% 100% at 50% 0%);"
+  aria-label="Hero Música Mundial"
+>
+  <!-- Curvas y cuadrículas abstractas de fondo (Vectoriales para alto rendimiento y nitidez) -->
+  <svg class="absolute inset-0 w-full h-full opacity-10 pointer-events-none" viewBox="0 0 1440 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M-100,200 C300,100 800,700 1600,600" stroke="currentColor" stroke-width="1.5" class="text-cyan-400" />
+    <path d="M-50,250 C350,150 850,750 1650,650" stroke="currentColor" stroke-width="0.8" stroke-dasharray="8 8" class="text-cyan-400" />
+    <circle cx="150" cy="150" r="300" stroke="currentColor" stroke-width="1.5" class="text-indigo-400" />
+    <circle cx="150" cy="150" r="380" stroke="currentColor" stroke-dasharray="10 5" stroke-width="1" class="text-indigo-400" />
+    <circle cx="1290" cy="650" r="300" stroke="currentColor" stroke-width="1.5" class="text-indigo-400" />
+    <circle cx="1290" cy="650" r="380" stroke="currentColor" stroke-dasharray="10 5" stroke-width="1" class="text-indigo-400" />
+  </svg>
+
+  <div class="relative z-10 mx-auto max-w-5xl flex flex-col items-center flex-1 justify-center gap-7">
+    <!-- Mini Badge Superior -->
+    <p class="text-xs font-black uppercase tracking-[0.25em] text-cyan-400">
+      Soundtracks del Mundial 2026
+    </p>
+
+    <!-- Título Principal Gigante -->
+    <h1 class="font-display font-black uppercase text-white leading-[0.88] tracking-tight text-6xl sm:text-7xl md:text-8xl lg:text-9xl">
+      Música<br />Mundial 26
+    </h1>
+
+    <!-- Subtítulo Descriptivo -->
+    <p class="max-w-2xl text-balance text-sm sm:text-base font-semibold leading-relaxed text-indigo-100/80">
+      Una radio visual del torneo: cada selección con sus colores, su grupo y una playlist pública de Spotify para escuchar lo que suena en el país.
+    </p>
+
+    <!-- Fila de Características (Pill Badges con Bordes Finos) -->
+    <div class="flex flex-wrap justify-center gap-2.5 max-w-3xl">
+      <span class="inline-flex items-center gap-1.5 border border-white/10 bg-white/5 rounded-full px-3.5 py-1.5 text-xs font-bold text-indigo-100">
+        <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+        </svg>
+        48 Selecciones
+      </span>
+      <span class="inline-flex items-center gap-1.5 border border-white/10 bg-white/5 rounded-full px-3.5 py-1.5 text-xs font-bold text-indigo-100">
+        <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25z" />
+        </svg>
+        12 Grupos
+      </span>
+      <span class="inline-flex items-center gap-1.5 border border-white/10 bg-white/5 rounded-full px-3.5 py-1.5 text-xs font-bold text-indigo-100">
+        <SpotifyIcon class="w-4 h-4 text-[#1db954]" />
+        Spotify integrado
+      </span>
+      <span class="inline-flex items-center gap-1.5 border border-white/10 bg-white/5 rounded-full px-3.5 py-1.5 text-xs font-bold text-indigo-100">
+        <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12h3.879c.677 0 1.29.378 1.587.98l1.414 2.83a1.5 1.5 0 002.816-.18l1.102-5.51a1.5 1.5 0 012.87-.223l1.246 2.493a1.5 1.5 0 001.342.88H21.75" />
+        </svg>
+        Playlists públicas
+      </span>
+      <span class="inline-flex items-center gap-1.5 border border-white/10 bg-white/5 rounded-full px-3.5 py-1.5 text-xs font-bold text-indigo-100">
+        <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+        </svg>
+        Actualizado en vivo
+      </span>
+    </div>
+
+    <!-- Fila de Banderas Redondeadas -->
+    <div class="flex flex-wrap justify-center gap-2 max-w-4xl px-2 my-2">
+      {featuredFlags.map((flag) => (
+        <img
+          src={`https://play.fifa.com/media/image/bracket_predictor/flags/world_cup_2026/${flag.code}.png`}
+          alt={`Bandera de ${flag.name}`}
+          loading="eager"
+          decoding="async"
+          class="h-9 w-12 object-contain rounded-md shadow-md border border-white/10 hover:scale-110 transition duration-200"
+        />
+      ))}
+    </div>
+
+    <!-- Botón de Acción Principal -->
+    <a
+      href="#grupos"
+      class="inline-flex items-center gap-2.5 bg-[#3ddcff] hover:bg-white text-black font-black uppercase text-xs tracking-wider px-7 py-4 rounded-full transition duration-300 shadow-xl shadow-[#3ddcff]/10 hover:shadow-white/10 hover:-translate-y-0.5"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3 15a3 3 0 003 3h1.5a1.5 1.5 0 001.5-1.5v-4A1.5 1.5 0 007.5 11H6a3 3 0 00-3 3zm18 0a3 3 0 01-3 3h-1.5a1.5 1.5 0 01-1.5-1.5v-4a1.5 1.5 0 011.5-1.5H18a3 3 0 013 3z" />
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3 14V12a9 9 0 0118 0v2" />
+      </svg>
+      Explorar Grupos
+    </a>
+  </div>
+
+  <!-- Flecha de Scroll Pulsante -->
+  <a
+    href="#grupos"
+    class="relative z-10 text-cyan-400 hover:text-white transition duration-200 animate-bounce mb-2"
+    aria-label="Ver grupos"
+  >
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+    </svg>
+  </a>
+</div>

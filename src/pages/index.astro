@@ -4,6 +4,7 @@ import { teams, worldCupGroups } from "../data/worldCupGroups.js";
 import { getSpotifySource } from "../data/musicSources.js";
 import GroupSection from "../components/GroupSection.astro";
 import PillButton from "../components/ui/PillButton.astro";
+import HeroBanner from "../components/HeroBanner.astro";
 
 const readyCount = teams.filter(
   (team) => getSpotifySource(team).status === "ready",
@@ -12,39 +13,7 @@ const readyCount = teams.filter(
 
 <BaseLayout title="Música Mundial | Soundtracks del Mundial 2026">
   <main>
-    <div
-      class="bg-[#12135a] rounded-bl-[40px] md:rounded-bl-[80px] lg:rounded-bl-[360px] flex min-h-[60vh] px-4 py-6 sm:px-6 lg:px-8"
-      aria-label="Hero Música Mundial"
-    >
-      <div
-        class="mx-auto flex min-h-[calc(60vh-3rem)] w-full max-w-7xl flex-col"
-      >
-        <div
-          id="hero-content"
-          class="mx-auto flex flex-1 items-center py-10 text-center"
-        >
-          <div class="mx-auto max-w-4xl">
-            <p
-              class="mt-9 text-sm font-black uppercase text-cyan-200 md:text-base"
-            >
-              Soundtracks del Mundial 2026
-            </p>
-            <h1
-              class="mt-4 text-balance text-6xl font-black uppercase leading-[0.88] text-white sm:text-7xl md:text-8xl lg:text-9xl"
-            >
-              Música<br />Mundial 26
-            </h1>
-            <p
-              class="mx-auto mt-7 max-w-2xl text-balance text-lg font-semibold leading-8 text-indigo-100 md:text-xl"
-            >
-              Una radio visual del torneo: cada selección con sus colores, su
-              grupo y una playlist pública de Spotify para escuchar lo que suena
-              en el país.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <HeroBanner />
   </main>
 
   <section id="grupos" class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">

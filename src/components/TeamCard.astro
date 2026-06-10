@@ -5,39 +5,26 @@ const { team } = Astro.props;
 const source = getSpotifySource(team);
 const theme = team.theme || {
   text: "text-indigo-600",
-  border: "border-indigo-100",
+  border: "border-indigo-200",
   bg: "bg-indigo-50/50",
   accent: "text-indigo-500",
   hoverBorder: "group-hover:border-indigo-300",
   hoverShadow: "hover:shadow-indigo-100/50",
   hoverText: "group-hover:text-indigo-600",
   badge: "bg-indigo-50 text-indigo-700 border-indigo-200/50",
+  hoverBg: "rgba(238, 242, 255, 0.65)",
 };
 const isReady = source.status === "ready";
 
-const hoverBgColors = {
-  A: "rgba(254, 242, 244, 0.65)", // rose-50
-  B: "rgba(250, 245, 255, 0.65)", // purple-50
-  C: "rgba(239, 246, 255, 0.65)", // blue-50
-  D: "rgba(236, 253, 245, 0.65)", // emerald-50
-  E: "rgba(255, 247, 237, 0.65)", // orange-50
-  F: "rgba(245, 243, 255, 0.65)", // violet-50
-  G: "rgba(238, 242, 255, 0.65)", // indigo-50
-  H: "rgba(240, 253, 244, 0.65)", // green-50
-  I: "rgba(255, 251, 235, 0.65)", // amber-50
-  J: "rgba(253, 242, 248, 0.65)", // pink-50
-  K: "rgba(236, 254, 255, 0.65)", // cyan-50
-  L: "rgba(247, 254, 231, 0.65)", // lime-50
-};
-const hoverBg = hoverBgColors[team.group] || "rgba(248, 250, 252, 0.65)";
-const darkBorder = theme.outlineBtn.split(' ')[0] || 'border-slate-950';
+const hoverBg = theme.hoverBg || "rgba(248, 250, 252, 0.65)";
+const cardBorder = theme.border || "border-slate-200";
 ---
 
 {
   isReady ? (
     <a
       href={`/pais/${team.slug}/`}
-      class={`group block rounded-[1.5rem] border-2 ${darkBorder} bg-white p-5 transition-all duration-300 hover:bg-[var(--hover-bg)] ${theme.hoverBorder} ${theme.hoverShadow}`}
+      class={`group block rounded-[1.5rem] border-2 ${cardBorder} bg-white p-5 transition-all duration-300 hover:bg-[var(--hover-bg)] ${theme.hoverBorder} ${theme.hoverShadow}`}
       style={`--hover-bg: ${hoverBg};`}
     >
       <div class="flex items-start justify-between gap-4">
@@ -73,7 +60,7 @@ const darkBorder = theme.outlineBtn.split(' ')[0] || 'border-slate-950';
   ) : (
     <a
       href={`/pais/${team.slug}/`}
-      class={`group block rounded-[1.5rem] border ${darkBorder} bg-white p-5 shadow-sm transition-all duration-300 hover:bg-[var(--hover-bg)] ${theme.hoverBorder} ${theme.hoverShadow}`}
+      class={`group block rounded-[1.5rem] border ${cardBorder} bg-white p-5 shadow-sm transition-all duration-300 hover:bg-[var(--hover-bg)] ${theme.hoverBorder} ${theme.hoverShadow}`}
       style={`--hover-bg: ${hoverBg};`}
     >
       <div class="flex items-start justify-between gap-4">

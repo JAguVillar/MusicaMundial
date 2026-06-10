@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import SpotifyEmbed from "../../components/SpotifyEmbed.astro";
 import TeamCard from "../../components/TeamCard.astro";
+import SpotifyIcon from "../../components/icons/spotify.astro";
 import { teams } from "../../data/worldCupGroups.js";
 import { getSpotifySource } from "../../data/musicSources.js";
 
@@ -100,9 +101,11 @@ const cultureImg =
             href={source.openUrl}
             target="_blank"
             rel="noreferrer"
-            class="mt-6 inline-flex border-2 border-white bg-white text-[#12135a] hover:bg-[#12135a] hover:text-white hover:border-white rounded-tl-none rounded-tr-full rounded-br-full rounded-bl-full px-6 py-3 text-xs font-black uppercase tracking-wider transition-all duration-200 justify-center items-center"
-            >Abrir en Spotify</a
+            class="mt-6 inline-flex border-2 border-white bg-white text-[#12135a] hover:bg-[#12135a] hover:text-white hover:border-white rounded-tl-none rounded-tr-full rounded-br-full rounded-bl-full px-6 py-3 text-xs font-black uppercase tracking-wider transition-all duration-200 justify-center items-center gap-2"
           >
+            <SpotifyIcon class="w-4 h-4" />
+            Abrir en Spotify
+          </a>
         </div>
       </div>
 

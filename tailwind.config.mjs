@@ -3,12 +3,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-<<<<<<< HEAD
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']
-=======
         sans: ['Archivo', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         display: ['Clash Display', 'sans-serif']
->>>>>>> feature/host-city-logo-colors
       },
       colors: {
         pitch: '#06130f',

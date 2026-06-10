@@ -3,12 +3,8 @@ import '../styles/global.css';
 
 const {
   title = 'Música Mundial',
-<<<<<<< HEAD
-  description = 'Soundtracks estáticos del Mundial 2026 con embeds públicos de Spotify por selección.'
-=======
   description = 'Soundtracks estáticos del Mundial 2026 con embeds públicos de Spotify por selección.',
   bodyClass = ''
->>>>>>> feature/host-city-logo-colors
 } = Astro.props;
 ---
 <!doctype html>
@@ -19,11 +15,6 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
-<<<<<<< HEAD
-  </head>
-  <body class="font-sans antialiased">
-    <div class="sound-grid min-h-screen">
-=======
     <script is:inline>
       (function() {
         const referrer = document.referrer;
@@ -49,7 +40,6 @@ const {
   </head>
   <body class={`font-sans antialiased transition-colors duration-500 ${bodyClass}`}>
     <div class="min-h-screen">
->>>>>>> feature/host-city-logo-colors
       <slot />
     </div>
   </body>

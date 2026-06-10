@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 @font-face {
   font-family: 'Clash Display';
   src: url('/fonts/ClashDisplay-Variable.woff2') format('woff2-variations'),
@@ -26,16 +24,10 @@
   font-display: swap;
   font-style: italic;
 }
-
->>>>>>> feature/host-city-logo-colors
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-<<<<<<< HEAD
-:root {
-  color-scheme: dark;
-=======
 @layer base {
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Clash Display', sans-serif;
@@ -44,7 +36,6 @@
 
 :root {
   color-scheme: light;
->>>>>>> feature/host-city-logo-colors
 }
 
 html {
@@ -53,26 +44,9 @@ html {
 
 body {
   min-height: 100vh;
-<<<<<<< HEAD
-  background:
-    radial-gradient(circle at top left, rgba(182, 255, 92, 0.18), transparent 32rem),
-    radial-gradient(circle at 85% 15%, rgba(34, 211, 238, 0.12), transparent 28rem),
-    linear-gradient(135deg, #06130f 0%, #0d1b2a 52%, #111827 100%);
-  color: #f8fafc;
-}
-
-.sound-grid {
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
-  background-size: 34px 34px;
-}
-=======
   background: #ffffff;
   color: #0f172a;
 }
-
->>>>>>> feature/host-city-logo-colors
 
 .equalizer-bar {
   animation: pulse-wave 1.2s ease-in-out infinite;
@@ -87,10 +61,6 @@ body {
   0%, 100% { transform: scaleY(0.42); opacity: 0.65; }
   50% { transform: scaleY(1); opacity: 1; }
 }
-<<<<<<< HEAD
-=======
-
-
 
 .hero-stat {
   border-radius: 1.25rem;
@@ -144,4 +114,3 @@ body {
   color: #ffffff;
   font-size: 0.98rem;
 }
->>>>>>> feature/host-city-logo-colors

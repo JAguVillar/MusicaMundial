@@ -1,6 +1,7 @@
 ---
 import { worldCupAnthems } from "../data/worldCupAnthems.js";
 import SpotifyIcon from "./icons/spotify.astro";
+import PillButton from "./ui/PillButton.astro";
 import {
   Play,
   Headphones,
@@ -66,20 +67,23 @@ const hostCountries = {
     <!-- SLIDESHOW DE HIMNOS (PowerPoint Style - Flex Layout) -->
     <div class="flex items-center justify-between gap-4 md:gap-8 max-w-5xl mx-auto mt-8 select-none">
       <!-- Botón Anterior -->
-      <button 
+      <PillButton 
         id="anthem-prev"
-        class="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-[#0e123f] border border-white/10 text-white hover:border-white/30 hover:bg-[#141b5a] transition duration-200 cursor-pointer focus:outline-none"
-        aria-label="Himno anterior"
+        href="#"
+        themeClass="border border-white/10 text-indigo-200/60 hover:bg-white hover:text-[#04061e] hover:border-white transition-all duration-200 px-4 py-2"
+        ariaLabel="Himno anterior"
+        class="flex-shrink-0"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 md:w-6 md:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
           <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
         </svg>
-      </button>
+        <span class="hidden sm:inline">Anterior</span>
+      </PillButton>
 
       <!-- Contenedor del Slide Activo (Sin bordes y con esquinas estilo País) -->
       <div 
         id="anthems-slideshow-container"
-        class="flex-1  rounded-bl-[80px] p-6 md:p-10 transition-all duration-500"
+        class="flex-1 bg-[#0e123f]/30 rounded-[2.5rem] rounded-bl-[80px] p-6 md:p-10 transition-all duration-500"
       >
         {
           worldCupAnthems.map((anthem, index) => {
@@ -140,15 +144,18 @@ const hostCountries = {
       </div>
 
       <!-- Botón Siguiente -->
-      <button 
+      <PillButton 
         id="anthem-next"
-        class="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-[#0e123f] border border-white/10 text-white hover:border-white/30 hover:bg-[#141b5a] transition duration-200 cursor-pointer focus:outline-none"
-        aria-label="Himno siguiente"
+        href="#"
+        themeClass="border border-white/10 text-indigo-200/60 hover:bg-white hover:text-[#04061e] hover:border-white transition-all duration-200 px-4 py-2"
+        ariaLabel="Himno siguiente"
+        class="flex-shrink-0"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 md:w-6 md:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+        <span class="hidden sm:inline">Siguiente</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
         </svg>
-      </button>
+      </PillButton>
     </div>
 
     <!-- CTA BANNER FINAL -->
@@ -405,12 +412,14 @@ const hostCountries = {
     }
 
     // Navegación con clicks
-    prevBtn.addEventListener("click", () => {
+    prevBtn.addEventListener("click", (e) => {
+      e.preventDefault();
       const newIndex = (activeIndex - 1 + slides.length) % slides.length;
       updateSlideshow(newIndex);
     });
 
-    nextBtn.addEventListener("click", () => {
+    nextBtn.addEventListener("click", (e) => {
+      e.preventDefault();
       const newIndex = (activeIndex + 1) % slides.length;
       updateSlideshow(newIndex);
     });

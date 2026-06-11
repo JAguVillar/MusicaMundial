@@ -14,7 +14,8 @@ const {
   class: className = '',
   target,
   rel,
-  ariaLabel
+  ariaLabel,
+  ...rest
 } = Astro.props;
 ---
 
@@ -24,6 +25,7 @@ const {
   rel={rel}
   aria-label={ariaLabel}
   class={`inline-flex items-center justify-center gap-2 rounded-tl-none rounded-tr-full rounded-br-full rounded-bl-full px-5 py-2 text-xs font-black uppercase tracking-wider transition-all duration-200 ${themeClass} ${className}`}
+  {...rest}
 >
   <slot />
 </a>

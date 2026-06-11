@@ -16,15 +16,16 @@ El nuevo diseño adopta un formato de **presentación de diapositivas estilo Pow
 
 ## 2. Cambios de Interfaz (UI) y Maqueta
 
-### Contenedor Principal (`id="anthems-slideshow"`)
-* **Ubicación:** Reemplazará al antiguo carrusel `#anthems-timeline` en `src/components/Footer.astro`.
-* **Ancho y Alineación:** Centrado horizontalmente con un ancho máximo de `max-w-3xl` (aproximadamente `768px`) para garantizar una legibilidad óptima.
-* **Fondo y Bordes:** Fondo sólido y plano `#0e123f/30` con un borde inicial sutil de `border-white/5` (el cual cambiará dinámicamente de color según el himno activo).
+### Distribución de Controles y Contenedor Principal
+* **Distribución Flex:** Los botones de flecha y el contenedor de la tarjeta se encuentran alineados horizontalmente en un contenedor flex (`flex items-center justify-between`) de ancho máximo `max-w-5xl mx-auto` con espaciado amplio (`gap-4 md:gap-8`), emulando un estilo "flex between" espaciado de la tarjeta.
+* **Contenedor de Diapositiva (`id="anthems-slideshow-container"`):**
+  * **Fondo:** Fondo sólido y plano `#0e123f/30`.
+  * **Bordes:** Sin bordes (`border-none` / plain design).
+  * **Forma y Esquinas:** Imitando el diseño de las tarjetas de países de la ruta `/pais`, tiene esquinas redondeadas amplias en tres extremos (`rounded-[2.5rem]`) y una esquina inferior izquierda extendida y slanteada (`rounded-bl-[80px]`).
 
 ### Navegación Flanqueante (Flechas)
-* Los botones "Anterior" y "Siguiente" se ubicarán en los extremos izquierdo y derecho del contenedor del slide.
+* Los botones "Anterior" y "Siguiente" son elementos flex-shrink independientes ubicados a la izquierda y derecha de la tarjeta, permitiendo que queden espaciados dinámicamente.
 * Estilo visual plano: Botones circulares con fondo `bg-[#0e123f]` y borde `border-white/10`, con un hover que resalta a `border-white/30` y un color de texto blanco.
-* Iconografía: Uso de las flechas de `lucide-astro` u otra iconografía existente en el proyecto.
 
 ### Tarjeta del Slide (`.anthem-slide`)
 Se utilizará una disposición de filas (`flex-row`) en pantallas medianas/grandes y columnas (`flex-col`) en pantallas móviles.
@@ -65,7 +66,6 @@ const hostCountries = {
   * Al hacer clic en "Siguiente", el índice incrementa en 1. Si supera el total, vuelve a 0.
   * Al hacer clic en "Anterior", el índice decrementa en 1. Si es menor que 0, va al último índice.
   * Ocultará el slide actual y mostrará el nuevo aplicando una clase de animación de transición (`fade-in-slide`).
-* **Borde Dinámico Plano:** Al cambiar de diapositiva, se leerá el color del badge del himno actual y se aplicará al borde del contenedor del slideshow (usando clases de Tailwind o inline styles basados en el tema de color).
 * **Navegación por Teclado:** Se añade un event listener global para las teclas `ArrowLeft` (Anterior) y `ArrowRight` (Siguiente). Este listener solo actuará si el usuario no está escribiendo en campos de entrada de texto y el slideshow está visible.
 
 ---
@@ -96,5 +96,4 @@ Se incluirá un efecto de animación sutil y limpio al cambiar entre diapositiva
 ## 6. Pruebas y Criterios de Aceptación
 1. **Navegación Circular:** Al llegar al final de la lista, hacer clic en "Siguiente" debe llevar al himno de 1990. Lo mismo a la inversa con "Anterior".
 2. **Reproducción de Video:** Al hacer clic en la portada de cualquier slide activo, debe abrirse correctamente el modal de YouTube con el ID correspondiente.
-3. **Responsive Design:** La tarjeta debe verse correctamente y con tamaño de texto legible tanto en dispositivos móviles (apilado vertical) como en pantallas de escritorio (alineación horizontal).
-4. **Borde Dinámico:** El color del borde del contenedor debe cambiar de color para reflejar la identidad visual del año seleccionado.
+3. **Responsive Design:** La tarjeta y sus flechas laterales flex-between deben verse correctamente y con tamaño de texto legible tanto en dispositivos móviles (apilado vertical, botones al lado) como en pantallas de escritorio (alineación horizontal con amplio espacio lateral).

@@ -13,3 +13,7 @@ dist/
 # OS/editor
 .DS_Store
 .vscode/
+
+# Brainstorming tools
+.superpowers/
+

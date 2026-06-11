@@ -1,0 +1,466 @@
+---
+import { worldCupAnthems } from "../data/worldCupAnthems.js";
+import SpotifyIcon from "./icons/spotify.astro";
+import {
+  Play,
+  Headphones,
+  Music,
+  Github,
+  Twitter,
+  Instagram,
+  ArrowRight,
+} from "lucide-astro";
+
+const hostCountries = {
+  1990: "Italia",
+  1994: "EE.UU.",
+  1998: "Francia",
+  2002: "Corea / Japón",
+  2006: "Alemania",
+  2010: "Sudáfrica",
+  2014: "Brasil",
+  2018: "Rusia",
+  2022: "Catar",
+};
+---
+
+<footer class="bg-[#04061e] border-t border-white/5 mt-20 relative overflow-hidden">
+  <!-- Imagen de fondo dinámica del himno actual -->
+  <div 
+    id="slideshow-bg"
+    class="absolute inset-0 bg-cover bg-center transition-opacity duration-300 opacity-0 blur-[2px] pointer-events-none z-0"
+  ></div>
+  <!-- Máscara de degradado para fundir la imagen con el fondo oscuro general -->
+  <div class="absolute inset-0 bg-gradient-to-b from-[#04061e] via-transparent to-[#04061e] pointer-events-none z-0"></div>
+
+  <!-- Glow Effect Background -->
+  <div class="absolute top-0 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-[#3ddcff]/5 rounded-full blur-[120px] pointer-events-none"></div>
+  <div class="absolute bottom-0 right-1/4 translate-y-1/2 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+  <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 relative z-10">
+    <!-- SECCIÓN PRINCIPAL: Himnos de los Mundiales -->
+    <div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div>
+        <p class="text-xs font-black uppercase tracking-[0.25em] text-[#fc1446]">
+          La banda sonora de la historia
+        </p>
+        <h2 class="mt-3 text-3xl font-black text-white sm:text-4xl md:text-5xl leading-tight">
+          Himnos de los Mundiales
+        </h2>
+        <p class="mt-3 max-w-2xl text-sm leading-relaxed text-indigo-200/60 font-medium">
+          Revive las canciones que marcaron cada Copa del Mundo y acompañaron a generaciones de aficionados.
+        </p>
+      </div>
+
+      <a
+        href="https://en.wikipedia.org/wiki/FIFA_World_Cup_official_songs"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 border border-white/10 hover:border-white/30 bg-white/5 hover:bg-white/10 text-white font-extrabold uppercase text-xs tracking-wider px-5 py-3 rounded-full transition duration-300 self-start md:self-auto"
+      >
+        Ver historia completa
+        <ArrowRight class="w-4 h-4 text-[#3ddcff]" />
+      </a>
+    </div>
+
+    <!-- SLIDESHOW DE HIMNOS (PowerPoint Style - Flex Layout) -->
+    <div class="flex items-center justify-between gap-4 md:gap-8 max-w-5xl mx-auto mt-8 select-none">
+      <!-- Botón Anterior -->
+      <button 
+        id="anthem-prev"
+        class="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-[#0e123f] border border-white/10 text-white hover:border-white/30 hover:bg-[#141b5a] transition duration-200 cursor-pointer focus:outline-none"
+        aria-label="Himno anterior"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 md:w-6 md:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <!-- Contenedor del Slide Activo (Sin bordes y con esquinas estilo País) -->
+      <div 
+        id="anthems-slideshow-container"
+        class="flex-1  rounded-bl-[80px] p-6 md:p-10 transition-all duration-500"
+      >
+        {
+          worldCupAnthems.map((anthem, index) => {
+            const hostCountry = hostCountries[anthem.year] || "";
+
+            return (
+              <div 
+                class={`anthem-slide flex flex-col md:flex-row items-center gap-6 md:gap-10 transition-all duration-300 ${index === 0 ? "active" : "hidden"}`}
+                data-slide-index={index}
+                data-bg-url={anthem.background}
+              >
+                <!-- Portada de Álbum con Play Overlay -->
+                <div 
+                  class="w-full md:w-[280px] aspect-[16/10] flex-shrink-0 rounded-2xl overflow-hidden bg-slate-950/80 shadow-md relative group cursor-pointer border border-white/10"
+                  data-play-btn
+                  data-youtube-id={anthem.youtubeId}
+                >
+                  <img
+                    src={anthem.cover}
+                    alt={`Portada de ${anthem.title}`}
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                  />
+                  <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="bg-white text-black p-3.5 rounded-full shadow-2xl transform scale-90 group-hover:scale-100 transition duration-300">
+                      <Play class="w-5 h-5 fill-current" />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Datos del Himno -->
+                <div class="flex-1 text-center md:text-left">
+                  <div class="flex flex-wrap gap-2.5 items-center justify-center md:justify-start mb-3">
+                    <span class={`inline-block px-2.5 py-0.5 rounded-full text-[10px] font-black tracking-wider uppercase border ${anthem.badgeColor}`}>
+                      {anthem.year}
+                    </span>
+                    {hostCountry && (
+                      <span class="text-xs text-indigo-200/50 font-bold uppercase tracking-wider">
+                        Mundial {hostCountry}
+                      </span>
+                    )}
+                  </div>
+                  <h3 class="text-2xl md:text-3xl font-black text-white leading-tight group-hover:text-[#3ddcff] transition duration-200">
+                    {anthem.title}
+                  </h3>
+                  <p class="text-sm md:text-base text-indigo-200/50 mt-1.5 font-bold">
+                    {anthem.artist}
+                  </p>
+                  <p class="text-xs md:text-sm text-indigo-200/30 mt-4 leading-relaxed font-medium">
+                    Haz clic en la portada para reproducir el video oficial y recordar los mejores momentos de la Copa Mundial de {anthem.year}.
+                  </p>
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+
+      <!-- Botón Siguiente -->
+      <button 
+        id="anthem-next"
+        class="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-[#0e123f] border border-white/10 text-white hover:border-white/30 hover:bg-[#141b5a] transition duration-200 cursor-pointer focus:outline-none"
+        aria-label="Himno siguiente"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 md:w-6 md:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- CTA BANNER FINAL -->
+    <div class="relative mt-16 bg-gradient-to-r from-indigo-950/40 via-slate-900/40 to-indigo-950/40 border border-white/5 rounded-[2rem] p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden">
+      <!-- Glow decoration in CTA -->
+      <div class="absolute -right-10 top-0 w-40 h-40 bg-[#3ddcff]/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="flex items-start md:items-center gap-5">
+        <div class="flex-shrink-0 p-4 bg-[#3ddcff]/10 border border-[#3ddcff]/20 text-[#3ddcff] rounded-2xl">
+          <Music class="w-6 h-6" />
+        </div>
+        <div>
+          <h3 class="text-xl sm:text-2xl font-black text-white tracking-tight">
+            Explora. Escucha. Conecta.
+          </h3>
+          <p class="text-xs sm:text-sm text-indigo-200/60 mt-1.5 font-medium max-w-xl leading-relaxed">
+            La música nos une más allá de los colores. Descubre qué suena en cada rincón del Mundial 2026.
+          </p>
+        </div>
+      </div>
+
+      <a
+        href="#grupos"
+        class="inline-flex items-center gap-2.5 bg-[#3ddcff] hover:bg-white text-black font-black uppercase text-xs tracking-wider px-6.5 py-4 rounded-full transition duration-300 hover:shadow-[#3ddcff]/10 hover:-translate-y-0.5 flex-shrink-0"
+      >
+        <Headphones class="w-4.5 h-4.5" />
+        Explorar Selecciones
+      </a>
+    </div>
+
+    <!-- ENLACES DEL FOOTER (4 Columnas) -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-10 mt-20 pt-16 border-t border-white/5">
+      <!-- Columna 1 -->
+      <div class="col-span-2 md:col-span-1">
+        <h4 class="font-display font-black uppercase text-white tracking-tight text-lg">
+          Música Mundial 26
+        </h4>
+        <p class="mt-4 text-xs leading-relaxed text-indigo-200/40 font-medium max-w-xs">
+          Soundtracks del Mundial 2026. Un viaje sonoro y cultural a través de las 48 selecciones.
+        </p>
+      </div>
+
+      <!-- Columna 2 -->
+      <div>
+        <h5 class="text-xs font-black uppercase tracking-wider text-white">
+          Navegación
+        </h5>
+        <ul class="mt-4 space-y-2.5 text-xs font-bold text-indigo-200/50">
+          <li>
+            <a href="#grupos" class="hover:text-[#3ddcff] transition duration-200">Grupos</a>
+          </li>
+          <li>
+            <a href="#grupos" class="hover:text-[#3ddcff] transition duration-200">Selecciones</a>
+          </li>
+          <li>
+            <a href="#anthems-timeline" class="hover:text-[#3ddcff] transition duration-200">Himnos de los Mundiales</a>
+          </li>
+          <li>
+            <a href="https://github.com/JAguVillar/MusicaMundial" target="_blank" rel="noopener noreferrer" class="hover:text-[#3ddcff] transition duration-200">Acerca del proyecto</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Columna 3 -->
+      <div>
+        <h5 class="text-xs font-black uppercase tracking-wider text-white">
+          Recursos
+        </h5>
+        <ul class="mt-4 space-y-2.5 text-xs font-bold text-indigo-200/50">
+          <li>
+            <a href="https://play.fifa.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#3ddcff] transition duration-200">Cómo funciona</a>
+          </li>
+          <li>
+            <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026" target="_blank" rel="noopener noreferrer" class="hover:text-[#3ddcff] transition duration-200">FIFA 2026 FAQ</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[#3ddcff] transition duration-200 cursor-not-allowed opacity-50">Términos de servicio</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[#3ddcff] transition duration-200 cursor-not-allowed opacity-50">Privacidad</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Columna 4 -->
+      <div>
+        <h5 class="text-xs font-black uppercase tracking-wider text-white">
+          Conecta
+        </h5>
+        <ul class="mt-4 space-y-2.5 text-xs font-bold text-indigo-200/50">
+          <li>
+            <a href="https://open.spotify.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-[#3ddcff] transition duration-200">
+              <SpotifyIcon class="w-4 h-4 text-[#1db954]" />
+              Spotify
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-[#3ddcff] transition duration-200">
+              <Github class="w-4 h-4" />
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-[#3ddcff] transition duration-200">
+              <Twitter class="w-4 h-4" />
+              Twitter / X
+            </a>
+          </li>
+          <li>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-[#3ddcff] transition duration-200">
+              <Instagram class="w-4 h-4" />
+              Instagram
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- COPRYIGHT Y FIRMA -->
+    <div class="border-t border-white/5 mt-12 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-indigo-200/30 font-semibold">
+      <p>© 2026 Música Mundial 26. Todos los derechos reservados.</p>
+      <p class="flex items-center gap-1">
+        Hecho con <span class="text-rose-500">❤️</span> para los fanáticos del fútbol y la música.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL DE REPRODUCTOR DE VIDEO DE YOUTUBE -->
+<div 
+  id="video-modal" 
+  class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md transition-all duration-300"
+>
+  <div class="relative w-full max-w-4xl mx-4 aspect-video bg-[#050720] rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl">
+    <!-- Close Button -->
+    <button 
+      id="close-modal" 
+      class="absolute top-4 right-4 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-2.5 rounded-full transition z-10"
+      aria-label="Cerrar modal"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <!-- Iframe container -->
+    <div id="video-iframe-container" class="w-full h-full"></div>
+  </div>
+</div>
+
+<script>
+  // Script del lado del cliente para manejar la reproducción de videos en el modal
+  const playButtons = document.querySelectorAll("[data-play-btn]");
+  const modal = document.getElementById("video-modal");
+  const closeModalBtn = document.getElementById("close-modal");
+  const iframeContainer = document.getElementById("video-iframe-container");
+
+  if (modal && closeModalBtn && iframeContainer) {
+    // Función para abrir el modal
+    const openModal = (youtubeId) => {
+      iframeContainer.innerHTML = `
+        <iframe 
+          src="https://www.youtube.com/embed/${youtubeId}?autoplay=1" 
+          class="w-full h-full" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen
+        ></iframe>
+      `;
+      modal.classList.remove("hidden");
+      document.body.style.overflow = "hidden"; // Deshabilita scroll de fondo
+    };
+
+    // Función para cerrar el modal
+    const closeModal = () => {
+      modal.classList.add("hidden");
+      iframeContainer.innerHTML = ""; // Destruye el iframe para cortar el video y audio
+      document.body.style.overflow = ""; // Reactiva scroll de fondo
+    };
+
+    // Eventos de apertura
+    playButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const youtubeId = btn.getAttribute("data-youtube-id");
+        if (youtubeId) {
+          openModal(youtubeId);
+        }
+      });
+    });
+
+    // Evento de cierre (botón)
+    closeModalBtn.addEventListener("click", closeModal);
+
+    // Evento de cierre (hacer click fuera del contenedor del video / backdrop)
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    // Soporte para tecla Esc
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+        closeModal();
+      }
+    });
+  }
+
+  // Lógica del Slideshow de Himnos (PowerPoint Style)
+  const slides = document.querySelectorAll(".anthem-slide");
+  const prevBtn = document.getElementById("anthem-prev");
+  const nextBtn = document.getElementById("anthem-next");
+  const slideshowContainer = document.getElementById("anthems-slideshow-container");
+  const slideshowBg = document.getElementById("slideshow-bg");
+
+  if (slides.length > 0 && prevBtn && nextBtn && slideshowContainer) {
+    let activeIndex = 0;
+
+    const updateSlideshow = (newIndex) => {
+      // Ocultar slide actual
+      const currentSlide = slides[activeIndex];
+      currentSlide.classList.remove("active");
+      currentSlide.classList.add("hidden");
+
+      // Actualizar índice
+      activeIndex = newIndex;
+
+      // Mostrar nuevo slide
+      const nextSlide = slides[activeIndex];
+      nextSlide.classList.remove("hidden");
+      nextSlide.classList.add("active");
+
+      // Actualizar imagen de fondo dinámica
+      if (slideshowBg) {
+        const newBgUrl = nextSlide.getAttribute("data-bg-url");
+        slideshowBg.style.opacity = "0";
+        setTimeout(() => {
+          if (newBgUrl) {
+            slideshowBg.style.backgroundImage = `url('${newBgUrl}')`;
+            slideshowBg.style.opacity = "0.35"; // Opacidad del 35% para que la imagen de fondo se distinga mejor
+          } else {
+            slideshowBg.style.backgroundImage = "none";
+          }
+        }, 150);
+      }
+    };
+
+    // Inicializar el primer fondo
+    if (slideshowBg && slides.length > 0) {
+      const initialBgUrl = slides[0].getAttribute("data-bg-url");
+      if (initialBgUrl) {
+        slideshowBg.style.backgroundImage = `url('${initialBgUrl}')`;
+        slideshowBg.style.opacity = "0.35";
+      }
+    }
+
+    // Navegación con clicks
+    prevBtn.addEventListener("click", () => {
+      const newIndex = (activeIndex - 1 + slides.length) % slides.length;
+      updateSlideshow(newIndex);
+    });
+
+    nextBtn.addEventListener("click", () => {
+      const newIndex = (activeIndex + 1) % slides.length;
+      updateSlideshow(newIndex);
+    });
+
+    // Navegación por teclado
+    document.addEventListener("keydown", (e) => {
+      // Ignorar si el usuario está escribiendo en algún input/textarea
+      const activeEl = document.activeElement;
+      if (activeEl && (activeEl.tagName === "INPUT" || activeEl.tagName === "TEXTAREA" || activeEl.isContentEditable)) {
+        return;
+      }
+
+      // Solo si el elemento del slideshow está en el viewport
+      const rect = slideshowContainer.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+      if (isVisible) {
+        if (e.key === "ArrowLeft") {
+          prevBtn.click();
+        } else if (e.key === "ArrowRight") {
+          nextBtn.click();
+        }
+      }
+    });
+  }
+</script>
+
+<style>
+  /* Ocultar barra de scroll nativa pero mantener funcionalidad */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  /* Animación estilo PowerPoint (Fade + Slide) */
+  @keyframes fadeInSlide {
+    from {
+      opacity: 0;
+      transform: translateX(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .anthem-slide.active {
+    animation: fadeInSlide 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+</style>

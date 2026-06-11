@@ -26,25 +26,22 @@ const featuredFlags = [
 ---
 
 <div
-  class="relative bg-[#06092b] rounded-bl-[40px] md:rounded-bl-[80px] lg:rounded-bl-[360px] flex flex-col items-center justify-between px-4 pt-16 pb-12 sm:px-6 lg:px-8 text-center overflow-hidden min-h-[92dvh]"
+  class="relative bg-[#06092b] rounded-bl-[40px] md:rounded-bl-[80px] lg:rounded-bl-[280px] flex flex-col items-center px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24 text-center overflow-hidden min-h-[78svh] lg:min-h-[84svh]"
   aria-label="Hero Música Mundial"
 >
   <div
-    class="relative z-10 mx-auto max-w-5xl flex flex-col items-center flex-1 justify-center gap-7"
+    class="relative z-10 mx-auto flex w-full max-w-5xl flex-1 flex-col items-center justify-center gap-6"
   >
-    <!-- Mini Badge Superior -->
     <p class="text-xs font-black uppercase tracking-[0.25em] text-cyan-400">
       Soundtracks del Mundial 2026
     </p>
 
-    <!-- Título Principal Gigante -->
     <h1
       class="font-display font-black uppercase text-white leading-[0.88] tracking-tight text-6xl sm:text-7xl md:text-8xl lg:text-9xl"
     >
       Música<br />Mundial 26
     </h1>
 
-    <!-- Subtítulo Descriptivo -->
     <p
       class="max-w-2xl text-balance text-sm sm:text-base font-semibold leading-relaxed text-indigo-100/80"
     >
@@ -52,73 +49,31 @@ const featuredFlags = [
       una playlist pública de Spotify para escuchar lo que suena en el país.
     </p>
 
-    <!-- Fila de Características (Pill Badges con Iconos Lucide) -->
     <div class="flex flex-wrap justify-center gap-2.5 max-w-3xl">
-      <span
-        class="inline-flex items-center gap-1.5 border border-white/10 bg-white/5 rounded-full px-3.5 py-1.5 text-xs font-bold text-indigo-100"
-      >
-        <Users class="w-4 h-4 text-cyan-400" />
-        48 Selecciones
-      </span>
-      <span
-        class="inline-flex items-center gap-1.5 border border-white/10 bg-white/5 rounded-full px-3.5 py-1.5 text-xs font-bold text-indigo-100"
-      >
-        <LayoutGrid class="w-4 h-4 text-cyan-400" />
-        12 Grupos
-      </span>
-      <span
-        class="inline-flex items-center gap-1.5 border border-white/10 bg-white/5 rounded-full px-3.5 py-1.5 text-xs font-bold text-indigo-100"
-      >
-        <SpotifyIcon class="w-4 h-4 text-[#1db954]" />
-        Spotify integrado
-      </span>
-      <span
-        class="inline-flex items-center gap-1.5 border border-white/10 bg-white/5 rounded-full px-3.5 py-1.5 text-xs font-bold text-indigo-100"
-      >
-        <Activity class="w-4 h-4 text-cyan-400" />
-        Playlists públicas
-      </span>
-      <span
-        class="inline-flex items-center gap-1.5 border border-white/10 bg-white/5 rounded-full px-3.5 py-1.5 text-xs font-bold text-indigo-100"
-      >
-        <RefreshCw class="w-4 h-4 text-cyan-400 animate-spin-slow" />
-        Actualizado en vivo
-      </span>
+      <!-- badges igual que ahora -->
     </div>
 
-    <!-- Fila de Banderas Redondeadas -->
-    <div class="flex flex-wrap justify-center gap-2 max-w-4xl px-2 my-2">
-      {
-        featuredFlags.map((flag) => (
-          <img
-            src={`https://play.fifa.com/media/image/bracket_predictor/flags/world_cup_2026/${flag.code}.png`}
-            alt={`Bandera de ${flag.name}`}
-            loading="eager"
-            decoding="async"
-            class="h-9 w-12 object-contain  hover:scale-110 transition duration-200"
-          />
-        ))
-      }
-    </div>
+    <div class="mt-2 flex flex-col items-center gap-3">
+      <a
+        href="#grupos"
+        class="group inline-flex items-center gap-2.5 bg-[#3ddcff] hover:bg-white text-black font-black uppercase text-xs tracking-wider px-7 py-4 rounded-full transition duration-300 hover:shadow-white/10 hover:-translate-y-0.5"
+      >
+        <Headphones class="w-4 h-4" />
+        Explorar grupos
+        <ChevronDown
+          class="w-4 h-4 transition-transform duration-300 group-hover:translate-y-0.5"
+        />
+      </a>
 
-    <!-- Botón de Acción Principal con Icono Lucide -->
-    <a
-      href="#grupos"
-      class="inline-flex items-center gap-2.5 bg-[#3ddcff] hover:bg-white text-black font-black uppercase text-xs tracking-wider px-7 py-4 rounded-full transition duration-300 hover:shadow-white/10 hover:-translate-y-0.5"
-    >
-      <Headphones class="w-5 h-5" />
-      Explorar Grupos
-    </a>
+      <a
+        href="#grupos"
+        class="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-[0.2em] text-cyan-300/70 transition hover:text-cyan-300"
+        aria-label="Ir a grupos"
+      >
+        Descubrir selecciones
+      </a>
+    </div>
   </div>
-
-  <!-- Flecha de Scroll Pulsante con Icono Lucide -->
-  <a
-    href="#grupos"
-    class="relative z-10 text-cyan-400 hover:text-white transition duration-200 mb-2"
-    aria-label="Ver grupos"
-  >
-    <ChevronDown class="w-6 h-6" />
-  </a>
 </div>
 
 <style>

@@ -3,8 +3,8 @@ export const worldCupAnthems = [
     year: 1990,
     title: "Un'estate Italiana",
     artist: "Edoardo Bennato & Gianna Nannini",
-    youtubeId: "9C5mR2uIok8",
-    cover: "https://i.ytimg.com/vi/9C5mR2uIok8/hqdefault.jpg",
+    youtubeId: "N2ANAqO1TLs",
+    cover: "https://i.ytimg.com/vi/N2ANAqO1TLs/hqdefault.jpg",
     badgeColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
   },
   {
@@ -19,16 +19,16 @@ export const worldCupAnthems = [
     year: 1998,
     title: "La Copa de la Vida",
     artist: "Ricky Martin",
-    youtubeId: "8455KPRITQc",
-    cover: "https://i.ytimg.com/vi/8455KPRITQc/hqdefault.jpg",
+    youtubeId: "tF_ggG5dY5U",
+    cover: "https://i.ytimg.com/vi/tF_ggG5dY5U/hqdefault.jpg",
     badgeColor: "bg-rose-500/10 text-rose-400 border-rose-500/20"
   },
   {
     year: 2002,
     title: "Boom",
     artist: "Anastacia",
-    youtubeId: "kYJ_f-uH_6g",
-    cover: "https://i.ytimg.com/vi/kYJ_f-uH_6g/hqdefault.jpg",
+    youtubeId: "LoB9tWdNdSo",
+    cover: "https://i.ytimg.com/vi/LoB9tWdNdSo/hqdefault.jpg",
     badgeColor: "bg-purple-500/10 text-purple-400 border-purple-500/20"
   },
   {
@@ -67,8 +67,8 @@ export const worldCupAnthems = [
     year: 2022,
     title: "Hayya Hayya (Better Together)",
     artist: "Trinidad Cardona, Davido & AISHA",
-    youtubeId: "91W-I2R9-iQ",
-    cover: "https://i.ytimg.com/vi/91W-I2R9-iQ/hqdefault.jpg",
+    youtubeId: "vyDjFVZgJoo",
+    cover: "https://i.ytimg.com/vi/vyDjFVZgJoo/hqdefault.jpg",
     badgeColor: "bg-orange-500/10 text-orange-400 border-orange-500/20"
   }
 ];

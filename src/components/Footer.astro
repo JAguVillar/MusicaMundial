@@ -28,10 +28,10 @@ const hostCountries = {
   <!-- Imagen de fondo dinámica del himno actual -->
   <div 
     id="slideshow-bg"
-    class="absolute inset-0 bg-cover bg-center transition-opacity duration-300 opacity-0 blur-[8px] pointer-events-none z-0"
+    class="absolute inset-0 bg-cover bg-center transition-opacity duration-300 opacity-0 blur-[2px] pointer-events-none z-0"
   ></div>
-  <!-- Máscara de degradado para fundir la imagen con el fondo oscuro general -->
-  <div class="absolute inset-0 bg-gradient-to-b from-[#04061e] via-transparent to-[#04061e] pointer-events-none z-0"></div>
+  <!-- Máscara de degradado con centro negro para neutralizar el azul y mantener legibilidad -->
+  <div class="absolute inset-0 bg-gradient-to-b from-[#04061e] via-black/60 to-[#04061e] pointer-events-none z-0"></div>
 
   <!-- Glow Effect Background -->
   <div class="absolute top-0 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-[#3ddcff]/5 rounded-full blur-[120px] pointer-events-none"></div>
@@ -387,7 +387,7 @@ const hostCountries = {
         setTimeout(() => {
           if (newBgUrl) {
             slideshowBg.style.backgroundImage = `url('${newBgUrl}')`;
-            slideshowBg.style.opacity = "0.15"; // Opacidad del 15% para que sea visible pero sutil
+            slideshowBg.style.opacity = "0.30"; // Opacidad del 30% en fondo negro para que resalten sus colores originales
           } else {
             slideshowBg.style.backgroundImage = "none";
           }
@@ -400,7 +400,7 @@ const hostCountries = {
       const initialBgUrl = slides[0].getAttribute("data-bg-url");
       if (initialBgUrl) {
         slideshowBg.style.backgroundImage = `url('${initialBgUrl}')`;
-        slideshowBg.style.opacity = "0.15";
+        slideshowBg.style.opacity = "0.30";
       }
     }
 

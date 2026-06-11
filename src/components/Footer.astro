@@ -32,7 +32,7 @@ const hostCountries = {
     class="absolute inset-0 bg-cover bg-center transition-opacity duration-300 opacity-0 blur-[2px] pointer-events-none z-0"
   ></div>
   <!-- Máscara de degradado para fundir la imagen con el fondo oscuro general -->
-  <div class="absolute inset-0 bg-gradient-to-b from-[#04061e] via-transparent to-[#04061e] pointer-events-none z-0"></div>
+  <div class="absolute inset-0 bg-gradient-to-t from-[#04061e] via-transparent pointer-events-none z-0"></div>
 
   <!-- Glow Effect Background -->
   <div class="absolute top-0 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-[#3ddcff]/5 rounded-full blur-[120px] pointer-events-none"></div>
@@ -42,9 +42,6 @@ const hostCountries = {
     <!-- SECCIÓN PRINCIPAL: Himnos de los Mundiales -->
     <div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
       <div>
-        <p class="text-xs font-black uppercase tracking-[0.25em] text-[#fc1446]">
-          La banda sonora de la historia
-        </p>
         <h2 class="mt-3 text-3xl font-black text-white sm:text-4xl md:text-5xl leading-tight">
           Himnos de los Mundiales
         </h2>
@@ -53,15 +50,7 @@ const hostCountries = {
         </p>
       </div>
 
-      <a
-        href="https://en.wikipedia.org/wiki/FIFA_World_Cup_official_songs"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 border border-white/10 hover:border-white/30 bg-white/5 hover:bg-white/10 text-white font-extrabold uppercase text-xs tracking-wider px-5 py-3 rounded-full transition duration-300 self-start md:self-auto"
-      >
-        Ver historia completa
-        <ArrowRight class="w-4 h-4 text-[#3ddcff]" />
-      </a>
+
     </div>
 
     <!-- SLIDESHOW DE HIMNOS (PowerPoint Style - Flex Layout) -->
@@ -72,7 +61,7 @@ const hostCountries = {
         href="#"
         themeClass="border border-white/10 text-indigo-200/60 hover:bg-white hover:text-[#04061e] hover:border-white transition-all duration-200 px-4 py-2"
         ariaLabel="Himno anterior"
-        class="flex-shrink-0"
+        class="flex-shrink-0 invisible pointer-events-none"
       >
         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
           <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
@@ -83,7 +72,7 @@ const hostCountries = {
       <!-- Contenedor del Slide Activo (Sin bordes y con esquinas estilo País) -->
       <div 
         id="anthems-slideshow-container"
-        class="flex-1 bg-[#0e123f]/30 rounded-[2.5rem] rounded-bl-[80px] p-6 md:p-10 transition-all duration-500"
+        class="flex-1 bg-[#0e123f]/10 rounded-[2.5rem] rounded-bl-[80px] p-6 md:p-10 transition-all duration-500"
       >
         {
           worldCupAnthems.map((anthem, index) => {
@@ -158,37 +147,9 @@ const hostCountries = {
       </PillButton>
     </div>
 
-    <!-- CTA BANNER FINAL -->
-    <div class="relative mt-16 bg-gradient-to-r from-indigo-950/40 via-slate-900/40 to-indigo-950/40 border border-white/5 rounded-[2rem] p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden">
-      <!-- Glow decoration in CTA -->
-      <div class="absolute -right-10 top-0 w-40 h-40 bg-[#3ddcff]/10 rounded-full blur-3xl pointer-events-none"></div>
-
-      <div class="flex items-start md:items-center gap-5">
-        <div class="flex-shrink-0 p-4 bg-[#3ddcff]/10 border border-[#3ddcff]/20 text-[#3ddcff] rounded-2xl">
-          <Music class="w-6 h-6" />
-        </div>
-        <div>
-          <h3 class="text-xl sm:text-2xl font-black text-white tracking-tight">
-            Explora. Escucha. Conecta.
-          </h3>
-          <p class="text-xs sm:text-sm text-indigo-200/60 mt-1.5 font-medium max-w-xl leading-relaxed">
-            La música nos une más allá de los colores. Descubre qué suena en cada rincón del Mundial 2026.
-          </p>
-        </div>
-      </div>
-
-      <a
-        href="#grupos"
-        class="inline-flex items-center gap-2.5 bg-[#3ddcff] hover:bg-white text-black font-black uppercase text-xs tracking-wider px-6.5 py-4 rounded-full transition duration-300 hover:shadow-[#3ddcff]/10 hover:-translate-y-0.5 flex-shrink-0"
-      >
-        <Headphones class="w-4.5 h-4.5" />
-        Explorar Selecciones
-      </a>
-    </div>
 
     <!-- ENLACES DEL FOOTER (4 Columnas) -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-10 mt-20 pt-16 border-t border-white/5">
-      <!-- Columna 1 -->
+    <!-- <div class="grid grid-cols-2 md:grid-cols-4 gap-10 mt-20 pt-16 border-t border-white/5">
       <div class="col-span-2 md:col-span-1">
         <h4 class="font-display font-black uppercase text-white tracking-tight text-lg">
           Música Mundial 26
@@ -198,7 +159,6 @@ const hostCountries = {
         </p>
       </div>
 
-      <!-- Columna 2 -->
       <div>
         <h5 class="text-xs font-black uppercase tracking-wider text-white">
           Navegación
@@ -219,7 +179,6 @@ const hostCountries = {
         </ul>
       </div>
 
-      <!-- Columna 3 -->
       <div>
         <h5 class="text-xs font-black uppercase tracking-wider text-white">
           Recursos
@@ -240,7 +199,6 @@ const hostCountries = {
         </ul>
       </div>
 
-      <!-- Columna 4 -->
       <div>
         <h5 class="text-xs font-black uppercase tracking-wider text-white">
           Conecta
@@ -272,7 +230,7 @@ const hostCountries = {
           </li>
         </ul>
       </div>
-    </div>
+    </div> -->
 
     <!-- COPRYIGHT Y FIRMA -->
     <div class="border-t border-white/5 mt-12 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-indigo-200/30 font-semibold">
@@ -373,6 +331,22 @@ const hostCountries = {
   if (slides.length > 0 && prevBtn && nextBtn && slideshowContainer) {
     let activeIndex = 0;
 
+    const updateButtonsVisibility = () => {
+      // Anterior: ocultar si estamos en el primer slide
+      if (activeIndex === 0) {
+        prevBtn.classList.add("invisible", "pointer-events-none");
+      } else {
+        prevBtn.classList.remove("invisible", "pointer-events-none");
+      }
+
+      // Siguiente: ocultar si estamos en el último slide
+      if (activeIndex === slides.length - 1) {
+        nextBtn.classList.add("invisible", "pointer-events-none");
+      } else {
+        nextBtn.classList.remove("invisible", "pointer-events-none");
+      }
+    };
+
     const updateSlideshow = (newIndex) => {
       // Ocultar slide actual
       const currentSlide = slides[activeIndex];
@@ -400,6 +374,9 @@ const hostCountries = {
           }
         }, 150);
       }
+
+      // Actualizar visibilidad de botones
+      updateButtonsVisibility();
     };
 
     // Inicializar el primer fondo
@@ -411,20 +388,25 @@ const hostCountries = {
       }
     }
 
-    // Navegación con clicks
+    // Inicializar la visibilidad de los botones al cargar
+    updateButtonsVisibility();
+
+    // Navegación con clicks (sin bucle infinito)
     prevBtn.addEventListener("click", (e) => {
       e.preventDefault();
-      const newIndex = (activeIndex - 1 + slides.length) % slides.length;
-      updateSlideshow(newIndex);
+      if (activeIndex > 0) {
+        updateSlideshow(activeIndex - 1);
+      }
     });
 
     nextBtn.addEventListener("click", (e) => {
       e.preventDefault();
-      const newIndex = (activeIndex + 1) % slides.length;
-      updateSlideshow(newIndex);
+      if (activeIndex < slides.length - 1) {
+        updateSlideshow(activeIndex + 1);
+      }
     });
 
-    // Navegación por teclado
+    // Navegación por teclado (sin bucle infinito)
     document.addEventListener("keydown", (e) => {
       // Ignorar si el usuario está escribiendo en algún input/textarea
       const activeEl = document.activeElement;
@@ -437,9 +419,9 @@ const hostCountries = {
       const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
 
       if (isVisible) {
-        if (e.key === "ArrowLeft") {
+        if (e.key === "ArrowLeft" && activeIndex > 0) {
           prevBtn.click();
-        } else if (e.key === "ArrowRight") {
+        } else if (e.key === "ArrowRight" && activeIndex < slides.length - 1) {
           nextBtn.click();
         }
       }

@@ -30,8 +30,8 @@ const hostCountries = {
     id="slideshow-bg"
     class="absolute inset-0 bg-cover bg-center transition-opacity duration-300 opacity-0 blur-[2px] pointer-events-none z-0"
   ></div>
-  <!-- Máscara de degradado con centro negro para neutralizar el azul y mantener legibilidad -->
-  <div class="absolute inset-0 bg-gradient-to-b from-[#04061e] via-black/60 to-[#04061e] pointer-events-none z-0"></div>
+  <!-- Máscara de degradado para fundir la imagen con el fondo oscuro general -->
+  <div class="absolute inset-0 bg-gradient-to-b from-[#04061e] via-transparent to-[#04061e] pointer-events-none z-0"></div>
 
   <!-- Glow Effect Background -->
   <div class="absolute top-0 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-[#3ddcff]/5 rounded-full blur-[120px] pointer-events-none"></div>
@@ -79,7 +79,7 @@ const hostCountries = {
       <!-- Contenedor del Slide Activo (Sin bordes y con esquinas estilo País) -->
       <div 
         id="anthems-slideshow-container"
-        class="flex-1 bg-[#0e123f]/30  rounded-bl-[80px] p-6 md:p-10 transition-all duration-500"
+        class="flex-1  rounded-bl-[80px] p-6 md:p-10 transition-all duration-500"
       >
         {
           worldCupAnthems.map((anthem, index) => {
@@ -387,7 +387,7 @@ const hostCountries = {
         setTimeout(() => {
           if (newBgUrl) {
             slideshowBg.style.backgroundImage = `url('${newBgUrl}')`;
-            slideshowBg.style.opacity = "0.30"; // Opacidad del 30% en fondo negro para que resalten sus colores originales
+            slideshowBg.style.opacity = "0.35"; // Opacidad del 35% para que la imagen de fondo se distinga mejor
           } else {
             slideshowBg.style.backgroundImage = "none";
           }
@@ -400,7 +400,7 @@ const hostCountries = {
       const initialBgUrl = slides[0].getAttribute("data-bg-url");
       if (initialBgUrl) {
         slideshowBg.style.backgroundImage = `url('${initialBgUrl}')`;
-        slideshowBg.style.opacity = "0.30";
+        slideshowBg.style.opacity = "0.35";
       }
     }
 

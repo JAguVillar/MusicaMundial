@@ -5,6 +5,7 @@ import { getSpotifySource } from "../data/musicSources.js";
 import GroupSection from "../components/GroupSection.astro";
 import PillButton from "../components/ui/PillButton.astro";
 import HeroBanner from "../components/HeroBanner.astro";
+import Footer from "../components/Footer.astro";
 
 const readyCount = teams.filter(
   (team) => getSpotifySource(team).status === "ready",
@@ -86,4 +87,5 @@ const readyCount = teams.filter(
       { passive: true },
     );
   </script>
+  <Footer />
 </BaseLayout>

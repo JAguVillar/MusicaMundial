@@ -62,6 +62,12 @@ const hostCountries = {
 ## 4. Comportamiento y Interactividad (Client-side JS)
 
 * **Visibilidad de Diapositivas:** Astro pre-renderizará todos los slides de himnos. Solo el primer slide (índice 0) tendrá la clase `active` (visible). Los demás slides estarán ocultos con la clase `hidden`.
+* **Imagen de Fondo Dinámica:**
+  * Al inicio del footer, se define una capa absoluta `#slideshow-bg` con baja opacidad (`opacity-0.08` u `8%`), desenfoque (`blur-[8px]`) y una máscara de degradado vertical oscura.
+  * Al cambiar de diapositiva:
+    1. Se reduce la opacidad de la capa `#slideshow-bg` a `0`.
+    2. Mediante un temporizador (`setTimeout` de `150ms`), se actualiza la propiedad `backgroundImage` con la URL provista en el atributo `data-bg-url` del slide activo.
+    3. Se restaura la opacidad a `0.08` para realizar una transición suave de desvanecimiento (fade-out / fade-in).
 * **Lógica de Cambio:** El script de cliente rastreará el `activeIndex`.
   * Al hacer clic en "Siguiente", el índice incrementa en 1. Si supera el total, vuelve a 0.
   * Al hacer clic en "Anterior", el índice decrementa en 1. Si es menor que 0, va al último índice.

@@ -5,7 +5,8 @@ export const worldCupAnthems = [
     artist: "Edoardo Bennato & Gianna Nannini",
     youtubeId: "N2ANAqO1TLs",
     cover: "https://i.ytimg.com/vi/N2ANAqO1TLs/hqdefault.jpg",
-    badgeColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
+    badgeColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
+    background: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=1200"
   },
   {
     year: 1994,
@@ -13,7 +14,8 @@ export const worldCupAnthems = [
     artist: "Daryl Hall",
     youtubeId: "KMuLePslBs4",
     cover: "https://i.ytimg.com/vi/KMuLePslBs4/hqdefault.jpg",
-    badgeColor: "bg-blue-500/10 text-blue-400 border-blue-500/20"
+    badgeColor: "bg-blue-500/10 text-blue-400 border-blue-500/20",
+    background: "https://images.unsplash.com/photo-1518063319789-7217e6706b04?q=80&w=1200"
   },
   {
     year: 1998,
@@ -21,7 +23,8 @@ export const worldCupAnthems = [
     artist: "Ricky Martin",
     youtubeId: "tF_ggG5dY5U",
     cover: "https://i.ytimg.com/vi/tF_ggG5dY5U/hqdefault.jpg",
-    badgeColor: "bg-rose-500/10 text-rose-400 border-rose-500/20"
+    badgeColor: "bg-rose-500/10 text-rose-400 border-rose-500/20",
+    background: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?q=80&w=1200"
   },
   {
     year: 2002,
@@ -29,7 +32,8 @@ export const worldCupAnthems = [
     artist: "Anastacia",
     youtubeId: "LoB9tWdNdSo",
     cover: "https://i.ytimg.com/vi/LoB9tWdNdSo/hqdefault.jpg",
-    badgeColor: "bg-purple-500/10 text-purple-400 border-purple-500/20"
+    badgeColor: "bg-purple-500/10 text-purple-400 border-purple-500/20",
+    background: "https://images.unsplash.com/photo-1504156083047-3bd068ec5e7f?q=80&w=1200"
   },
   {
     year: 2006,
@@ -37,7 +41,8 @@ export const worldCupAnthems = [
     artist: "Il Divo & Toni Braxton",
     youtubeId: "4aOxDHqWyK0",
     cover: "https://i.ytimg.com/vi/4aOxDHqWyK0/hqdefault.jpg",
-    badgeColor: "bg-indigo-500/10 text-indigo-400 border-indigo-500/20"
+    badgeColor: "bg-indigo-500/10 text-indigo-400 border-indigo-500/20",
+    background: "https://images.unsplash.com/photo-1431324155629-1a6edd1d141d?q=80&w=1200"
   },
   {
     year: 2010,
@@ -45,7 +50,8 @@ export const worldCupAnthems = [
     artist: "Shakira",
     youtubeId: "pRpeEdMmmQ0",
     cover: "https://i.ytimg.com/vi/pRpeEdMmmQ0/hqdefault.jpg",
-    badgeColor: "bg-amber-500/10 text-amber-400 border-amber-500/20"
+    badgeColor: "bg-amber-500/10 text-amber-400 border-amber-500/20",
+    background: "https://images.unsplash.com/photo-1516257984-b1b4d707412e?q=80&w=1200"
   },
   {
     year: 2014,
@@ -53,7 +59,8 @@ export const worldCupAnthems = [
     artist: "Pitbull ft. Jennifer Lopez & Claudia Leitte",
     youtubeId: "TGtWWb9emYI",
     cover: "https://i.ytimg.com/vi/TGtWWb9emYI/hqdefault.jpg",
-    badgeColor: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20"
+    badgeColor: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
+    background: "https://images.unsplash.com/photo-1562079590-70133c668106?q=80&w=1200"
   },
   {
     year: 2018,
@@ -61,7 +68,8 @@ export const worldCupAnthems = [
     artist: "Nicky Jam ft. Will Smith & Era Istrefi",
     youtubeId: "V15BYnSr0P8",
     cover: "https://i.ytimg.com/vi/V15BYnSr0P8/hqdefault.jpg",
-    badgeColor: "bg-pink-500/10 text-pink-400 border-pink-500/20"
+    badgeColor: "bg-pink-500/10 text-pink-400 border-pink-500/20",
+    background: "https://images.unsplash.com/photo-1529900748604-07564a03e7a6?q=80&w=1200"
   },
   {
     year: 2022,
@@ -69,6 +77,7 @@ export const worldCupAnthems = [
     artist: "Trinidad Cardona, Davido & AISHA",
     youtubeId: "vyDjFVZgJoo",
     cover: "https://i.ytimg.com/vi/vyDjFVZgJoo/hqdefault.jpg",
-    badgeColor: "bg-orange-500/10 text-orange-400 border-orange-500/20"
+    badgeColor: "bg-orange-500/10 text-orange-400 border-orange-500/20",
+    background: "https://images.unsplash.com/photo-1551958219-acbc608c6377?q=80&w=1200"
   }
 ];

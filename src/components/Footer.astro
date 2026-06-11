@@ -25,6 +25,14 @@ const hostCountries = {
 ---
 
 <footer class="bg-[#04061e] border-t border-white/5 mt-20 relative overflow-hidden">
+  <!-- Imagen de fondo dinámica del himno actual -->
+  <div 
+    id="slideshow-bg"
+    class="absolute inset-0 bg-cover bg-center transition-opacity duration-300 opacity-0 blur-[8px] pointer-events-none z-0"
+  ></div>
+  <!-- Máscara de degradado para fundir la imagen con el fondo oscuro general -->
+  <div class="absolute inset-0 bg-gradient-to-b from-[#04061e] via-[#04061e]/75 to-[#04061e] pointer-events-none z-0"></div>
+
   <!-- Glow Effect Background -->
   <div class="absolute top-0 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-[#3ddcff]/5 rounded-full blur-[120px] pointer-events-none"></div>
   <div class="absolute bottom-0 right-1/4 translate-y-1/2 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none"></div>
@@ -71,7 +79,7 @@ const hostCountries = {
       <!-- Contenedor del Slide Activo (Sin bordes y con esquinas estilo País) -->
       <div 
         id="anthems-slideshow-container"
-        class="flex-1 bg-[#0e123f]/30 rounded-[2.5rem] rounded-bl-[80px] p-6 md:p-10 transition-all duration-500"
+        class="flex-1 bg-[#0e123f]/30  rounded-bl-[80px] p-6 md:p-10 transition-all duration-500"
       >
         {
           worldCupAnthems.map((anthem, index) => {
@@ -81,6 +89,7 @@ const hostCountries = {
               <div 
                 class={`anthem-slide flex flex-col md:flex-row items-center gap-6 md:gap-10 transition-all duration-300 ${index === 0 ? "active" : "hidden"}`}
                 data-slide-index={index}
+                data-bg-url={anthem.background}
               >
                 <!-- Portada de Álbum con Play Overlay -->
                 <div 
@@ -352,6 +361,7 @@ const hostCountries = {
   const prevBtn = document.getElementById("anthem-prev");
   const nextBtn = document.getElementById("anthem-next");
   const slideshowContainer = document.getElementById("anthems-slideshow-container");
+  const slideshowBg = document.getElementById("slideshow-bg");
 
   if (slides.length > 0 && prevBtn && nextBtn && slideshowContainer) {
     let activeIndex = 0;
@@ -369,7 +379,30 @@ const hostCountries = {
       const nextSlide = slides[activeIndex];
       nextSlide.classList.remove("hidden");
       nextSlide.classList.add("active");
+
+      // Actualizar imagen de fondo dinámica
+      if (slideshowBg) {
+        const newBgUrl = nextSlide.getAttribute("data-bg-url");
+        slideshowBg.style.opacity = "0";
+        setTimeout(() => {
+          if (newBgUrl) {
+            slideshowBg.style.backgroundImage = `url('${newBgUrl}')`;
+            slideshowBg.style.opacity = "0.08"; // Baja opacidad para un estilo plano/sutil
+          } else {
+            slideshowBg.style.backgroundImage = "none";
+          }
+        }, 150);
+      }
     };
+
+    // Inicializar el primer fondo
+    if (slideshowBg && slides.length > 0) {
+      const initialBgUrl = slides[0].getAttribute("data-bg-url");
+      if (initialBgUrl) {
+        slideshowBg.style.backgroundImage = `url('${initialBgUrl}')`;
+        slideshowBg.style.opacity = "0.08";
+      }
+    }
 
     // Navegación con clicks
     prevBtn.addEventListener("click", () => {

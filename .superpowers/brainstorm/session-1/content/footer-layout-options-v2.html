@@ -1,0 +1,116 @@
+<h2>Refinando la Opción B (Diseño Plano)</h2>
+<p class="subtitle">Ajustamos la propuesta cinemática a un estilo plano que armonice con la estética de la web. Selecciona tu variante favorita:</p>
+
+<div class="options" data-choice-container>
+  <div class="option" data-choice="b-variant1" onclick="toggleSelect(this)">
+    <div class="letter">1</div>
+    <div class="content">
+      <h3>Variante B1: Borde de Color Dinámico (Recomendado)</h3>
+      <p>Mantiene el contenedor central con el fondo sólido de la web (<code>bg-[#0e123f]/30</code>) y el borde blanco sutil, pero el color del borde y el acento cambian dinámicamente según el himno (verde, azul, rosa, etc.). Sin reflejos ni sombras pesadas, perfectamente integrado.</p>
+    </div>
+  </div>
+  
+  <div class="option" data-choice="b-variant2" onclick="toggleSelect(this)">
+    <div class="letter">2</div>
+    <div class="content">
+      <h3>Variante B2: Dividido con Acento Lateral</h3>
+      <p>El contenedor central se divide en dos bloques planos. El bloque de la izquierda (detrás de la portada) tiene un fondo del color temático del himno, y el de la derecha tiene el fondo oscuro normal. Las flechas de navegación están más juntas abajo de los textos para no flotar a los extremos.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top: 2.5rem;">
+  <h3>Visualizaciones Previas de las Variantes Planas:</h3>
+  <p class="subtitle" style="font-size: 0.9rem; margin-bottom: 1.5rem;">Comparación de las dos variantes planas con el fondo azul de la web:</p>
+
+  <!-- MOCKUP B1 -->
+  <div class="mockup" style="background: #04061e; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; margin-bottom: 2rem; color: #fff; position: relative;">
+    <div class="mockup-header" style="background: rgba(255,255,255,0.03); color: rgba(255,255,255,0.5); border-bottom: 1px solid rgba(255,255,255,0.05); font-weight: bold;">
+      Variante B1: Contenedor Plano con Borde de Color Dinámico
+    </div>
+    
+    <!-- Floating side arrows - Flat style -->
+    <div style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); z-index: 5;">
+      <button style="width: 44px; height: 44px; border-radius: 50%; background: #0e123f; border: 1px solid rgba(255,255,255,0.1); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; cursor: pointer; transition: all 0.2s;">◀</button>
+    </div>
+    <div style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); z-index: 5;">
+      <button style="width: 44px; height: 44px; border-radius: 50%; background: #0e123f; border: 1px solid rgba(255,255,255,0.1); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; cursor: pointer; transition: all 0.2s;">▶</button>
+    </div>
+
+    <div class="mockup-body" style="padding: 2.5rem 4rem; display: flex; gap: 2.5rem; align-items: center; justify-content: center;">
+      <!-- Main container with orange theme color border -->
+      <div style="display: flex; flex: 1; background: #0e123f; border: 2px solid #f97316; border-radius: 24px; padding: 1.5rem; gap: 2rem; align-items: center; max-width: 700px;">
+        <!-- Cover -->
+        <div style="width: 180px; aspect-ratio: 16/10; background: #000; border-radius: 16px; overflow: hidden; position: relative; flex-shrink: 0; border: 1px solid rgba(255,255,255,0.1);">
+          <img src="https://i.ytimg.com/vi/vyDjFVZgJoo/hqdefault.jpg" style="width: 100%; height: 100%; object-fit: cover;" />
+          <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center;">
+            <div style="width: 40px; height: 40px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #000; font-size: 0.8rem; font-weight: bold;">▶</div>
+          </div>
+        </div>
+        <!-- Texts -->
+        <div style="flex: 1; text-align: left;">
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <span style="background: rgba(249, 115, 22, 0.1); color: #f97316; border: 1px solid rgba(249,115,22,0.2); padding: 2px 10px; border-radius: 9999px; font-size: 10px; font-weight: 900; text-transform: uppercase;">2022</span>
+            <span style="color: rgba(255,255,255,0.4); font-size: 10px; font-weight: bold;">Catar</span>
+          </div>
+          <h4 style="font-size: 1.25rem; font-weight: 900; margin-top: 8px; color: #fff; line-height: 1.2;">Hayya Hayya (Better Together)</h4>
+          <p style="font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-top: 2px;">Trinidad Cardona, Davido & AISHA</p>
+          <p style="font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 8px; line-height: 1.4;">El himno alegre que fusionó ritmos e influencias globales. Diseñado en formato plano sin sombras proyectadas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOCKUP B2 -->
+  <div class="mockup" style="background: #04061e; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; color: #fff;">
+    <div class="mockup-header" style="background: rgba(255,255,255,0.03); color: rgba(255,255,255,0.5); border-bottom: 1px solid rgba(255,255,255,0.05); font-weight: bold;">
+      Variante B2: Dividido con Acento Lateral
+    </div>
+    
+    <div class="mockup-body" style="padding: 2rem; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem;">
+      <div style="display: flex; width: 100%; max-width: 600px; background: #0e123f; border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; overflow: hidden;">
+        <!-- Left color banner with Cover -->
+        <div style="width: 200px; background: #ea580c; display: flex; align-items: center; justify-content: center; padding: 1.5rem; flex-shrink: 0;">
+          <div style="width: 100%; aspect-ratio: 1; background: #000; border-radius: 12px; overflow: hidden; position: relative;">
+            <img src="https://i.ytimg.com/vi/vyDjFVZgJoo/hqdefault.jpg" style="width: 100%; height: 100%; object-fit: cover;" />
+            <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center;">
+              <div style="width: 32px; height: 32px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #000; font-size: 0.7rem;">▶</div>
+            </div>
+          </div>
+        </div>
+        <!-- Right texts -->
+        <div style="flex: 1; padding: 1.5rem; text-align: left; display: flex; flex-direction: column; justify-content: center;">
+          <span style="align-self: flex-start; background: rgba(255,255,255,0.1); color: #fff; padding: 1px 8px; border-radius: 4px; font-size: 9px; font-weight: 800; text-transform: uppercase;">2022 - Catar</span>
+          <h4 style="font-size: 1.15rem; font-weight: 900; margin-top: 6px; color: #fff;">Hayya Hayya (Better Together)</h4>
+          <p style="font-size: 0.8rem; color: rgba(255,255,255,0.6);">Trinidad Cardona, Davido & AISHA</p>
+        </div>
+      </div>
+      
+      <!-- Navigation below the card -->
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <button style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); color: #fff; border-radius: 8px; width: 36px; height: 36px; cursor: pointer; display: flex; align-items: center; justify-content: center;">◀</button>
+        <span style="font-size: 0.75rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 800;">Himnos (9 de 9)</span>
+        <button style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); color: #fff; border-radius: 8px; width: 36px; height: 36px; cursor: pointer; display: flex; align-items: center; justify-content: center;">▶</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleSelect(el) {
+    const options = document.querySelectorAll('.option');
+    options.forEach(opt => opt.classList.remove('selected'));
+    el.classList.add('selected');
+    
+    if (window.ws && window.ws.readyState === WebSocket.OPEN) {
+      const choice = el.getAttribute('data-choice');
+      const text = el.querySelector('h3').innerText;
+      window.ws.send(JSON.stringify({
+        type: 'click',
+        choice: choice,
+        text: text,
+        timestamp: Math.floor(Date.now() / 1000)
+      }));
+    }
+  }
+</script>
